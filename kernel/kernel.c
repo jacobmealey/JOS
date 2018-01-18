@@ -17,6 +17,7 @@ zsh:1: command not found: 5*/
 #endif
  
 #include "vga.h"
+#include "keyboard.h"
 
 
 #if defined(__cplusplus)
@@ -32,6 +33,8 @@ void kernel_main(void)
 		printf("Hello, kernel World!\n", color);
 		printf("THIS IS ALL ME BABY!\n", color);
 		for(int i = 0; i < 5; i++){
-		printf("WELCOME TO MY WORLD\n", color);
+			printf("WELCOME TO MY WORLD\n", color);
 		}
+		while(true)
+			putchar(getScancode(), color);
 }
