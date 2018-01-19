@@ -91,26 +91,17 @@ char getScancode()
 char handleKeys()
 {
 	char key = getScancode();
-	if(key & 0x80){
 		
-	if(key == 0xAA){
-		shift = 0;
+	if(key == 0x2A){			
+		while(key){
+		key = getScancode();
+		return(key + 90);
+		}
 	}
-	}
-	else{
-
-	if(key == 0x2A){
-		shift = 1;
+	else if(key == 0xAA){
 		return 0;
 	}
-	else
-	{
-		if(shift){
-			return(key + 90);
-		}
-		else{
-	       		return(key);
-		}
-	}
+	else{
+	       	return(key);
 	}
 }
