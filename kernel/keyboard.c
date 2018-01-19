@@ -1,4 +1,6 @@
 #include "keyboard.h"
+
+int shift = 0;
 unsigned char kbdus[256] = {
     0,  27, '1', '2', '3', '4', '5', '6', '7', '8',	/* 9 */
   '9', '0', '-', '=', '\b',	/* Backspace */
@@ -89,11 +91,26 @@ char getScancode()
 char handleKeys()
 {
 	char key = getScancode();
+	if(key & 0x80){
+		
 	if(key == 0xAA){
-		return(key + 90);
+		shift = 0;
+	}
+	}
+	else{
+
+	if(key == 0x2A){
+		shift = 1;
+		return 0;
 	}
 	else
 	{
-		return(key);
+		if(shift){
+			return(key + 90);
+		}
+		else{
+	       		return(key);
+		}
+	}
 	}
 }
