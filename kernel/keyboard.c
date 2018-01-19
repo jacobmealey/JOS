@@ -1,4 +1,5 @@
 #include "keyboard.h"
+#include "vga.h"
 
 int shift = 0;
 unsigned char kbdus[256] = {
@@ -97,9 +98,6 @@ char handleKeys()
 		key = getScancode();
 		return(key + 90);
 		}
-	}
-	else if(key == 0xAA){
-		return 0;
 	}
 	else{
 	       	return(key);

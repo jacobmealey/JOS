@@ -36,7 +36,7 @@ void putchar(char c, uint8_t color){
 		cursor_x--;
 		location = (cursor_y * 80 + cursor_x)*2;
 		vidmem[location] = ' ';
-		vidmem[location+1] = 0xCF;
+		vidmem[location+1] = 0x0F;
 	}else if(c == 0x09){
 		cursor_x = (cursor_x+8) & ~(8-1);
 	}else if(c == '\r'){
@@ -44,6 +44,8 @@ void putchar(char c, uint8_t color){
 	}else if(c == '\n'){
 		cursor_x = 0;
 		cursor_y++;
+	}else if(c == 0x71){
+		cursor_x--;
 	}else if(c >= ' '){
 		location = (cursor_y * 80 + cursor_x)*2;
 		vidmem[location] = c;
