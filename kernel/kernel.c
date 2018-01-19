@@ -36,5 +36,5 @@ void kernel_main(void)
 			printf("WELCOME TO MY WORLD\n", color);
 		}
 		while(true)
-			putchar(getScancode(), color);
+			putchar(kbdus[handleKeys()], color);
 }
