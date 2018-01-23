@@ -11,6 +11,6 @@
 unsigned char kbdus[256];
 uint8_t inb(uint16_t);
 char getScancode();
-char handleKeys();
+void handleKeys();
 
 #endif

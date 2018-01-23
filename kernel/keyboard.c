@@ -89,17 +89,15 @@ char getScancode()
 	}
 	return inb(0x60);
 }
-char handleKeys()
+void handleKeys()
 {
 	char key = getScancode();
 		
 	if(key == 0x2A){			
-		while(key){
 		key = getScancode();
-		return(key + 90);
-		}
+		putchar(kbdus[key + 90], 0x0F);
 	}
 	else{
-	       	return(key);
+	       	putchar(kbdus[key], 0x0F);
 	}
 }
