@@ -30,7 +30,7 @@ int string_compare(char* str1, char* str2)
 	
 	while(str1[i]!='\0' && str2!='\0')	
 	{
-		if(str1[1] != str2[1]){
+		if(str1[i] != str2[i]){
 			flag = 0;
 			break;
 		}
