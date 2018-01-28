@@ -18,6 +18,7 @@ zsh:1: command not found: 5*/
  
 #include "vga.h"
 #include "keyboard.h"
+#include "shell.h"
 
 
 #if defined(__cplusplus)
@@ -30,11 +31,7 @@ void kernel_main(void)
 		uint16_t color = 0x0F; 
 		/* Newline support is left as an exercise. */
 		clear_screen(color);
-		printf("Hello, kernel World!\n", color);
-		printf("THIS IS ALL ME BABY!\n", color);
-		for(int i = 0; i < 5; i++){
-			printf("WELCOME TO MY WORLD\n", color);
-		}
+		sh_init();
 		while(true)
 			handleKeys();
 }

@@ -23,3 +23,22 @@ void concatc(char* a, char b, char* c)
 	c[i] = b;
 	c[len] = '\0';
 }
+int string_compare(char* str1, char* str2)
+{
+	int i = 0;
+	int flag = 0;
+	
+	while(str1[i]!='\0' && str2!='\0')	
+	{
+		if(str1[1] != str2[1]){
+			flag = 0;
+			break;
+		}
+		else
+		{
+			flag = 1;
+		}
+		i++;
+	}
+	return flag;
+}
