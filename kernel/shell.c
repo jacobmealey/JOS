@@ -1,5 +1,6 @@
 #include "shell.h"
-char *command_buffer = "Hello, World!";
+char *command_buffer = "\0";
+
 void sh_write(char data)
 {
 	putchar(data, 0x0F);
@@ -11,5 +12,10 @@ void sh_write(char data)
 			putchar(command_buffer[i], 0x0F);
 			i++;
 		}
+		return;
+	}
+	else
+	{
+		concatc(command_buffer, data, command_buffer);
 	}
 }
