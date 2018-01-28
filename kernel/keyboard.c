@@ -96,9 +96,7 @@ void handleKeys()
 		
 	if(key == 0x2A){			
 		key = getScancode();
-		if(key == 0xF0,0x12){
-			return;
-		}
+	
 		sh_write(kbdus[key + 90]);
 	}
 	else{
