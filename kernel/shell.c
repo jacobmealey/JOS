@@ -12,7 +12,7 @@ void sh_write(char data)
 			putchar(command_buffer[i], 0x0F);
 			i++;
 		}
-		return;
+		command_buffer = command_buffer - string_length(command_buffer);
 	}
 	else
 	{
