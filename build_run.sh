@@ -1,3 +1,5 @@
+echo "Compiling Bootloader"
+i386-elf-as boot.s -o boot.o
 echo "Compiling Kernel"
 i386-elf-gcc -c kernel/kernel.c -o kernel/kernel.o -std=gnu99 -ffreestanding -O2 -Wall -Wextra
 echo "compiling vga driver"
