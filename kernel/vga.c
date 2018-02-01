@@ -4,12 +4,6 @@ uint8_t cursor_y = 0;
 char *vidmem = (char *)0xb8000;
 
 
-void outb(uint16_t port, uint8_t value)
-{
-
-	    asm volatile ("outb %1, %0" : : "dN" (port), "a" (value));
-}
-
 void clear_screen(uint8_t color){
    int i;
    for(i = 0; i < 80*25*2; i++){
