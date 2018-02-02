@@ -11,6 +11,7 @@
 #include <stddef.h>
 #include <stdint.h>
 uint8_t inb(uint16_t port);
+uint16_t inw(uint16_t port);
 void outb(uint16_t port, uint8_t value);
 int string_length(char* string);
 void concatc(char* a, char b, char* c);

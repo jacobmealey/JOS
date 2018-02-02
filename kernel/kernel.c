@@ -19,6 +19,7 @@ zsh:1: command not found: 5*/
 #include "vga.h"
 #include "keyboard.h"
 #include "shell.h"
+#include "ata.h"
 
 
 #if defined(__cplusplus)
@@ -32,6 +33,9 @@ void kernel_main(void)
 		/* Newline support is left as an exercise. */
 		clear_screen(color);
 		sh_init();
+		prepareDisk(0, 0);
+		getFSType(0);
+		sh_write(getFSType(0));
 		while(true)
 			handleKeys();
 }

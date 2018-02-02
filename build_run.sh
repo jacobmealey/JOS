@@ -10,9 +10,12 @@ echo "compiling common"
 i386-elf-gcc -c kernel/common.c -o kernel/common.o -std=gnu99 -ffreestanding -O2 -Wall -Wextra
 echo "compiling shell"
 i386-elf-gcc -c kernel/shell.c -o kernel/shell.o -std=gnu99 -ffreestanding -O2 -Wall -Wextra
+echo "compiling ata driver"
+i386-elf-gcc -c kernel/ata.c -o kernel/ata.o -std=gnu99 -ffreestanding -O2 -Wall -Wextra
 echo "Linking Kernel and Bootloader"
 i386-elf-gcc -T linker.ld -o myos.bin -ffreestanding -O2 -nostdlib\
-       	boot.o kernel/keyboard.o kernel/common.o kernel/shell.o kernel/kernel.o kernel/vga.o -lgcc
+       	boot.o kernel/keyboard.o kernel/common.o kernel/shell.o kernel/kernel.o kernel/vga.o\
+	kernel/ata.o -lgcc
 echo "cleaning up"
 rm *.o
 rm kernel/*.o

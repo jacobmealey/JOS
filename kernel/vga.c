@@ -1,4 +1,5 @@
 #include "vga.h"
+#include "common.h"
 uint8_t cursor_x = 0;
 uint8_t cursor_y = 0;
 char *vidmem = (char *)0xb8000;
