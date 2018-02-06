@@ -1,14 +1,9 @@
 #include "vga.h"
+#include "common.h"
 uint8_t cursor_x = 0;
 uint8_t cursor_y = 0;
 char *vidmem = (char *)0xb8000;
 
-
-void outb(uint16_t port, uint8_t value)
-{
-
-	    asm volatile ("outb %1, %0" : : "dN" (port), "a" (value));
-}
 
 void clear_screen(uint8_t color){
    int i;
@@ -39,8 +34,6 @@ void putchar(char c, uint8_t color){
 		vidmem[location+1] = 0x0F;
 	}else if(c == 0x09){
 		cursor_x = (cursor_x+8) & ~(8-1);
-	}else if(c == '\r'){
-		cursor_x = 0;
 	}else if(c == '\n'){
 		cursor_x = 0;
 		cursor_y++;
@@ -117,47 +110,6 @@ void scroll(uint8_t color){
    }
 }
 
-void center_print(char *c, uint8_t color){
-	if(cursor_x > 0){
-		printf("\n",color);
-	}
-	int i = 0;
-	while(c[i]){
-		i++;
-	}
-	if(i > 80){
-		printf(c,color);
-	}else{
-		if(i % 2 == 0){
-			int h = (80-i)/2;
-			int j = 0;
-			while(j < h){
-				putchar(' ', color);
-				j++;
-			}
-			printf(c,color);
-			j = 0;
-			while(j < h){
-				putchar(' ', color);
-				j++;
-			}
-		}else{
-			int h = (80-i)/2;
-			int j = 0;
-			while(j < h){
-				putchar(' ', color);
-				j++;
-			}
-			printf(c,color);
-			j = 0;
-			h--;
-			while(j < h+2){
-				putchar(' ', color);
-				j++;
-			}
-		}
-	}
-}
 
 int getY(){
 	return cursor_y;

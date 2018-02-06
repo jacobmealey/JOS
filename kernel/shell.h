@@ -9,6 +9,7 @@
 #include <stdint.h>
 #include "vga.h"
 #include "common.h"
+#include "ata.h"
 void sh_init();
 void sh_write(char data);
 #endif

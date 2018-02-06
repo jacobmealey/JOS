@@ -1,6 +1,24 @@
 //common.c for all common tasks 
 //Jacob Mealey
 //
+#include "common.h"
+
+uint8_t inb(uint16_t port)
+{
+	uint8_t ret;
+	asm volatile("inb %1, %0" : "=a" (ret) : "dN" (port));
+	return ret;
+}
+uint16_t inw(uint16_t port)
+{
+	uint16_t ret;
+	asm volatile("inw %1, %0" : "=a" (ret) : "dN" (port));
+	return ret;
+}
+void outb(uint16_t port, uint8_t value)
+{
+	    asm volatile ("outb %1, %0" : : "dN" (port), "a" (value));
+}
 
 int string_length(char* string)
 {
@@ -22,6 +40,15 @@ void concatc(char* a, char b, char* c)
 	}
 	c[i] = b;
 	c[len] = '\0';
+}
+void removec(char* a, char*b)
+{
+	int len = string_length(a);
+	int i;
+	for(i = 0; i < len-1; i++){
+		b[i] = a[i];
+	}
+	b[i] =  '\0';
 }
 int string_compare(char* str1, char* str2)
 {

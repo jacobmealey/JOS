@@ -1,6 +1,7 @@
 #include "keyboard.h"
 #include "vga.h"
 #include "shell.h"
+#include "common.h"
 
 int shift = 0;
 unsigned char kbdus[256] = {
@@ -76,12 +77,6 @@ unsigned char kbdus[256] = {
 	
 };
 
-uint8_t inb(uint16_t port)
-{
-	uint8_t ret;
-	asm volatile("inb %1, %0" : "=a" (ret) : "dN" (port));
-	return ret;
-}
 char getScancode()
 {
 	char flag = inb(0x64);
