@@ -18,8 +18,6 @@ void scroll(uint8_t color);
 
 void printInt(int i, uint8_t color);
 
-void center_print(char *c, uint8_t color);
-
 int getX();
 
 int getY();

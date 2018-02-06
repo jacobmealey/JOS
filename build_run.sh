@@ -20,4 +20,4 @@ echo "cleaning up"
 rm *.o
 rm kernel/*.o
 echo "running system"
-qemu-system-i386 -kernel myos.bin
+qemu-system-i386 -kernel myos.bin -hda disk.img 

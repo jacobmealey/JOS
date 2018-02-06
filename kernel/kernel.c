@@ -1,5 +1,5 @@
 /* Surely you will remove the processor conditionals and this comment
-zsh:1: command not found: 5*/
+sh_writezsh:1: command not found: 5*/
 #if !defined(__cplusplus)
 #include <stdbool.h> /* C doesn't have booleans by default. */
 #endif
@@ -32,10 +32,12 @@ void kernel_main(void)
 		uint16_t color = 0x0F; 
 		/* Newline support is left as an exercise. */
 		clear_screen(color);
-		sh_init();
-		prepareDisk(0, 0);
-		getFSType(0);
-		sh_write(getFSType(0));
-		while(true)
-			handleKeys();
+		if(getFirstPartition(0) == 1){
+			printf("FAT32 disk in\n", 0x0F);
+		}else{
+			printf("Not a fat32 disk\n", 0x0F);
+			sh_init();
+			while(true)
+				handleKeys();
+		}
 }

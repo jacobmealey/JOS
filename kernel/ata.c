@@ -8,6 +8,8 @@
 uint8_t boot_disk = 0;
 uint8_t ata_buf[512];
 uint8_t ata_buf2[512];
+uint8_t *buf = ata_buf, *buf2 = ata_buf2;
+const char *fat32sig = "FAT32   ";
 
 void prepareDisk(int disk, int address){
 	outb(0x1F1,0x00);
@@ -47,6 +49,11 @@ int getFirstPartition(int disk){
 	return pos;
 }
 
-int getFSType(int disk){
-
+int isPartitionFAT32(int disk, int sect){
+	readSector(disk, sect, buf);
+	for(int i = 0; i < 8; i++){
+		if(buf[0x52+i] != fat32sig[i])
+			return 0; 
+	}
+	return 1;
 }
