@@ -35,7 +35,7 @@ void kernel_main(void)
 		if(getFirstPartition(0) == 1){
 			printf("FAT32 disk in\n", color);
 		}else{
-			printf("Not a fat32 disk\n", color);
+			printf("No fat32 disk detected!\n", 0x04);
 		}
 		sh_init();
 		while(true)

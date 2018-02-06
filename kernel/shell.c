@@ -13,7 +13,7 @@ void commands_check(char * command)
 	}
 	if(string_compare(command, "mkfile")){
 		if(isPartitionFAT32(0 , 0) != 1 ){
-			printf("Please insert fat32 disk in port 0", 0x0F);
+			printf("No fat32 formatted disk!\nplease insert disk on port 0", 0x04);
 		}
 	}
 }
