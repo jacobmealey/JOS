@@ -41,6 +41,15 @@ void concatc(char* a, char b, char* c)
 	c[i] = b;
 	c[len] = '\0';
 }
+void removec(char* a, char*b)
+{
+	int len = string_length(a);
+	int i;
+	for(i = 0; i < len-1; i++){
+		b[i] = a[i];
+	}
+	b[i] =  '\0';
+}
 int string_compare(char* str1, char* str2)
 {
 	int i = 0;

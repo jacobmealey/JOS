@@ -31,6 +31,11 @@ void sh_write(char data)
 	}
 	else
 	{
+		if(data == '\b'){
+			removec(command_buffer, command_buffer);
+			return;
+		}
+
 		concatc(command_buffer, data, command_buffer);
 	}
 }
