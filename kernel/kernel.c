@@ -33,11 +33,11 @@ void kernel_main(void)
 		/* Newline support is left as an exercise. */
 		clear_screen(color);
 		if(getFirstPartition(0) == 1){
-			printf("FAT32 disk in\n", 0x0F);
+			printf("FAT32 disk in\n", color);
 		}else{
-			printf("Not a fat32 disk\n", 0x0F);
-			sh_init();
-			while(true)
-				handleKeys();
+			printf("Not a fat32 disk\n", color);
 		}
+		sh_init();
+		while(true)
+			handleKeys();
 }
