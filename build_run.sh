@@ -1,3 +1,5 @@
+# Build Script for JOS
+# Jacob Mealey 
 echo "Compiling Bootloader"
 i386-elf-as boot.s -o boot.o
 echo "Compiling Kernel"

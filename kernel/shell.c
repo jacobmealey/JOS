@@ -32,7 +32,7 @@ void sh_write(char data)
 	else
 	{
 		if(data == '\b'){
-			removec(command_buffer, command_buffer);
+			removechar(command_buffer, command_buffer);
 			return;
 		}
 

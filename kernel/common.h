@@ -1,3 +1,6 @@
+// common.h 
+// Jacob Mealey
+// Note! Some functions are from portOS 
 #ifndef COMMON_H
 #define COMMON_H
 

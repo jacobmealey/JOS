@@ -1,3 +1,5 @@
+// Shell for JOS
+// Jacob Mealey
 #ifndef SHELL_H
 #define SHELL_H
 

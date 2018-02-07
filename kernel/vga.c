@@ -1,3 +1,6 @@
+// VGA driver for JOS
+// Jacob Mealey
+// modified code from PortOS
 #include "vga.h"
 #include "common.h"
 uint8_t cursor_x = 0;

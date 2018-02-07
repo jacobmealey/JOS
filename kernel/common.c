@@ -1,20 +1,28 @@
 //common.c for all common tasks 
 //Jacob Mealey
 //
+//note some functions and blocks of code are from PortOS a former project of mine
 #include "common.h"
 
+
+//inb for getting data in between I/O ports
+//imperative for keyboard! 
 uint8_t inb(uint16_t port)
 {
 	uint8_t ret;
 	asm volatile("inb %1, %0" : "=a" (ret) : "dN" (port));
 	return ret;
 }
+
 uint16_t inw(uint16_t port)
 {
 	uint16_t ret;
 	asm volatile("inw %1, %0" : "=a" (ret) : "dN" (port));
 	return ret;
 }
+
+//inb for getting data in between I/O ports
+//imperative for VGA driver! 
 void outb(uint16_t port, uint8_t value)
 {
 	    asm volatile ("outb %1, %0" : : "dN" (port), "a" (value));
@@ -29,6 +37,7 @@ int string_length(char* string)
 	}
 	return i;
 }
+
 void concatc(char* a, char b, char* c)
 {
 	int len = string_length(a) + 1;
@@ -41,7 +50,8 @@ void concatc(char* a, char b, char* c)
 	c[i] = b;
 	c[len] = '\0';
 }
-void removec(char* a, char*b)
+
+void removechar(char* a, char*b)
 {
 	int len = string_length(a);
 	int i;
@@ -50,6 +60,7 @@ void removec(char* a, char*b)
 	}
 	b[i] =  '\0';
 }
+
 int string_compare(char* str1, char* str2)
 {
 	int i = 0;

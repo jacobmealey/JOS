@@ -1,10 +1,8 @@
 #include "common.h"
 #include "ata.h"
 
-/*
-* This system is to read disks formatted with an MBR only.
-* For reading specific filesystems, see the respective files in c/drivers/disk.
-*/
+// ata driver for JOS
+// most code pulled from former project PortOS (https://github.com/MatthewGallant/PortOS)
 uint8_t boot_disk = 0;
 uint8_t ata_buf[512];
 uint8_t ata_buf2[512];

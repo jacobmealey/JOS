@@ -28,14 +28,14 @@ extern "C" /* Use C linkage for kernel_main. */
 void kernel_main(void) 
 {
 
-		/* Initialize terminal interface */
-		/* Newline support is left as an exercise. */
 		clear_screen(normal);
+		//pretty simple, just detecting if the drive is fat32 
 		if(isPartitionFAT32(0, 0) == 1){
 			printf("FAT32 disk in\n", green);
 		}else{
 			printf("No fat32 disk detected!\n", red);
 		}
+		//initialization of the terminal/shell
 		sh_init();
 		while(true)
 			handleKeys();
