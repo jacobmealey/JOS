@@ -32,8 +32,8 @@ void kernel_main(void)
 		uint16_t color = 0x0F; 
 		/* Newline support is left as an exercise. */
 		clear_screen(color);
-		if(getFirstPartition(0) == 1){
-			printf("FAT32 disk in\n", color);
+		if(isPartitionFAT32(0, 0) == 1){
+			printf("FAT32 disk in\n", 0x02);
 		}else{
 			printf("No fat32 disk detected!\n", 0x04);
 		}
