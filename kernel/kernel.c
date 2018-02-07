@@ -29,13 +29,12 @@ void kernel_main(void)
 {
 
 		/* Initialize terminal interface */
-		uint16_t color = 0x0F; 
 		/* Newline support is left as an exercise. */
-		clear_screen(color);
+		clear_screen(normal);
 		if(isPartitionFAT32(0, 0) == 1){
-			printf("FAT32 disk in\n", 0x02);
+			printf("FAT32 disk in\n", green);
 		}else{
-			printf("No fat32 disk detected!\n", 0x04);
+			printf("No fat32 disk detected!\n", red);
 		}
 		sh_init();
 		while(true)
