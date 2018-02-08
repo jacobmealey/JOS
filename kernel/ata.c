@@ -55,3 +55,79 @@ int isPartitionFAT32(int disk, int sect){
 	}
 	return 1;
 }
+void listFiles(int disk, int addr, int len){
+	int listed = 0;
+	printf("created list starting first for loop\n", normal);
+	for(int s = 0; s < len; s++){
+
+		prepareDisk(disk,addr+s);
+
+	  	unsigned char sect[512];
+
+		for(int i = 0; i < 255; i++){
+			uint16_t tmpword = (uint16_t)inw(0x1F0);
+			sect[i*2] = ((unsigned char)(tmpword));
+			sect[i*2+1] = ((unsigned char)(tmpword >> 8));
+		}
+		for(int i = 0; i < 512; i+=32){
+			if(sect[i+11] != 0x0f && sect[i] != 0xe5 && sect[i+11] != 0x08 && sect[i] != 0){
+				if(listed == 23){
+					printf("Press any key to continue...\n", normal);
+					pause();
+					listed = 0;
+				}
+				listed++;
+				for(int j = 0; j < 11; j++){
+					if(sect[i+j] != 0x20)
+						putchar(sect[i+j], normal);
+					if(j == 7 && (sect[i+11] >> 4) != 0x1)
+						putchar('.', normal);
+				}
+				if((sect[i+11] >> 4) == 0x1){
+					printf(" <DIR>", normal);
+				}
+				printf(" ", normal);
+				putchar(sect[i], normal);
+			}
+		}
+	}
+	printf("\nFinished", normal);
+}
+int getRoot(int disk)
+{
+	int position = getFirstPartition(disk);
+	prepareDisk(0, position);
+	int rsects = 0;
+	int fats = 0;
+	int size = 0;
+
+	for (int i = 0; i < 255; i++){
+		uint16_t tmpword = (uint16_t)inw(0x1F0);
+		if(i == 0x7){
+			rsects = (uint16_t)(tmpword);
+		}
+		if(i == 0x8){
+			fats = (uint16_t)(tmpword);
+		}
+		if(i == 0xb){
+			size = tmpword;
+		}
+	}
+	return fats*size+rsects+position;
+}
+int getRootEntries(int disk)
+{
+	prepareDisk(disk, getFirstPartition(disk));
+	uint16_t a = 0;
+	uint16_t b = 0;
+	for(int i = 0; i <255; i++){
+		uint16_t tmp = (uint16_t)inw(0x1F0);
+		if(i == 0x8)
+			a = tmp >> 8;
+		if(i == 0x9)
+			b = tmp << 8;
+	}
+	printInt(a, normal);
+	printf("\n", normal);
+	return a + b;
+}

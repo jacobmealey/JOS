@@ -83,3 +83,9 @@ int string_compare(char* str1, char* str2)
 		return 0;
 	}
 }
+void pause()
+{
+	while(inb(0x60) & 0x80){
+
+	}
+}

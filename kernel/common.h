@@ -14,6 +14,8 @@
 #include <stddef.h>
 #include <stdint.h>
 
+#include "vga.h"
+
 #define normal 0x0F
 #define blue 0x01
 #define green 0x02
@@ -35,6 +37,7 @@ uint16_t inw(uint16_t port);
 void outb(uint16_t port, uint8_t value);
 int string_length(char* string);
 void concatc(char* a, char b, char* c);
-void removec(char* a, char* b);
+void removechar(char* a, char* b);
 int string_compare(char* str1, char* str2);
+void pause();
 #endif

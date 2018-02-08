@@ -16,6 +16,15 @@ void commands_check(char * command)
 			printf("No fat32 formatted disk!\nplease insert disk on port 0", 0x04);
 		}
 	}
+	if(string_compare(command, "list")){
+		printInt(getRoot(0), normal);
+		printf("\n", normal);
+		printInt(getRootEntries(0), normal);
+		printf("\n", normal);
+		for(int i = 0; i < 2000; i++){
+			listFiles(0, i, 200); 
+		}
+	}
 }
 void sh_write(char data)
 {
