@@ -17,13 +17,8 @@ void commands_check(char * command)
 		}
 	}
 	if(string_compare(command, "list")){
-		printInt(getRoot(0), normal);
-		printf("\n", normal);
-		printInt(getRootEntries(0), normal);
-		printf("\n", normal);
-		for(int i = 0; i < 2000; i++){
-			listFiles(0, i, 200); 
-		}
+		for (int i = 10; i < 20; i++)
+			listFiles(0, i, 3021); 
 	}
 }
 void sh_write(char data)

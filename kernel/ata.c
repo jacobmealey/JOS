@@ -57,7 +57,6 @@ int isPartitionFAT32(int disk, int sect){
 }
 void listFiles(int disk, int addr, int len){
 	int listed = 0;
-	printf("created list starting first for loop\n", normal);
 	for(int s = 0; s < len; s++){
 
 		prepareDisk(disk,addr+s);
@@ -77,6 +76,7 @@ void listFiles(int disk, int addr, int len){
 					listed = 0;
 				}
 				listed++;
+				putchar('\n', normal);
 				for(int j = 0; j < 11; j++){
 					if(sect[i+j] != 0x20)
 						putchar(sect[i+j], normal);
@@ -91,7 +91,10 @@ void listFiles(int disk, int addr, int len){
 			}
 		}
 	}
-	printf("\nFinished", normal);
+}
+void listAllFiles(int disk){
+	for (int i = 0; i < 1000; i++)
+		listFiles(disk, i, 100);
 }
 int getRoot(int disk)
 {
