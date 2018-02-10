@@ -40,7 +40,7 @@ void putchar(char c, uint8_t color){
 	}else if(c == '\n'){
 		cursor_x = 0;
 		cursor_y++;
-	}else if(c == 0x71){
+	}else if(c == '\b'){
 		cursor_x--;
 	}else if(c >= ' '){
 		location = (cursor_y * 80 + cursor_x)*2;

@@ -37,6 +37,7 @@ void kernel_main(void)
 		}
 		//initialization of the terminal/shell
 		sh_init();
+		putchar('Q', normal);
 		while(true)
 			handleKeys();
 }
