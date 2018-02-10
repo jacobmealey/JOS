@@ -87,7 +87,6 @@ void listFiles(int disk, int addr, int len){
 					printf(" <DIR>", normal);
 				}
 				printf(" ", normal);
-				putchar(sect[i], normal);
 			}
 		}
 	}
