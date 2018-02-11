@@ -7,6 +7,7 @@ void readSectors(int disk, int address, int sectors, uint8_t *sect);
 int getFirstPartition(int disk);
 int isPartitionFAT32(int disk, int sect);
 void listFiles(int disk, int addr, int len);
+void listAllFiles(int disk);
 int getRoot(int disk);
 int getRootEntries(int disk);
 

@@ -92,8 +92,8 @@ void listFiles(int disk, int addr, int len){
 	}
 }
 void listAllFiles(int disk){
-	for (int i = 0; i < 1000; i++)
-		listFiles(disk, i, 100);
+	for (int i = 10; i < 20; i++)
+		listFiles(disk, i, 3021);
 }
 int getRoot(int disk)
 {

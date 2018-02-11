@@ -17,8 +17,7 @@ void commands_check(char * command)
 		}
 	}
 	if(string_compare(command, "list")){
-		for (int i = 10; i < 20; i++)
-			listFiles(0, i, 3021); 
+		listAllFiles(0);
 	}
 }
 void sh_write(char data)
