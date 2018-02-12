@@ -6,7 +6,6 @@
 #include "shell.h"
 #include "common.h"
 
-int shift = 0;
 unsigned char kbdus[256] = {
     0,  27, '1', '2', '3', '4', '5', '6', '7', '8',	/* 9 */
   '9', '0', '-', '=', '\b',	/* Backspace */
@@ -95,9 +94,9 @@ void handleKeys()
 	if(key == 0x2A){			
 		key = getScancode();
 	
-		sh_write(kbdus[key + 90]);
+		shWrite(kbdus[key + 90]);
 	}
 	else{
-	       	sh_write(kbdus[key]);
+	       	shWrite(kbdus[key]);
 	}
 }

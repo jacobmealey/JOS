@@ -36,7 +36,7 @@ void kernel_main(void)
 			printf("No fat32 disk detected!\n", red);
 		}
 		//initialization of the terminal/shell
-		sh_init();
+		shInit();
 		while(true)
 			handleKeys();
 }

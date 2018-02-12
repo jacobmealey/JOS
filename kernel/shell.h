@@ -12,6 +12,8 @@
 #include "vga.h"
 #include "common.h"
 #include "ata.h"
-void sh_init();
-void sh_write(char data);
+void shInit();
+void clearBuffer();
+int commandCheck(char * command);
+void shWrite(char data);
 #endif

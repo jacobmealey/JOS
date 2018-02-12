@@ -35,9 +35,9 @@
 uint8_t inb(uint16_t port);
 uint16_t inw(uint16_t port);
 void outb(uint16_t port, uint8_t value);
-int string_length(char* string);
-void concatc(char* a, char b, char* c);
-void removechar(char* a, char* b);
-int string_compare(char* str1, char* str2);
+int stringLength(char* string);
+void concatChar(char* a, char b, char* c);
+void removeChar(char* a, char* b);
+int stringCompare(char* str1, char* str2);
 void pause();
 #endif

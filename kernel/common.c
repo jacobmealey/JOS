@@ -28,7 +28,7 @@ void outb(uint16_t port, uint8_t value)
 	    asm volatile ("outb %1, %0" : : "dN" (port), "a" (value));
 }
 
-int string_length(char* string)
+int stringLength(char* string)
 {
 	int i = 0;
 	while(string[i] != '\0')	
@@ -38,11 +38,11 @@ int string_length(char* string)
 	return i;
 }
 
-void concatc(char* a, char b, char* c)
+void concatChar(char* a, char b, char* c)
 {
-	int len = string_length(a) + 1;
+	int len = stringLength(a) + 1;
 	int i =0;
-	while(i < string_length(a))
+	while(i < stringLength(a))
 	{
 		c[i] = a[i];
 		i++;
@@ -51,9 +51,9 @@ void concatc(char* a, char b, char* c)
 	c[len] = '\0';
 }
 
-void removechar(char* a, char*b)
+void removeChar(char* a, char*b)
 {
-	int len = string_length(a);
+	int len = stringLength(a);
 	int i;
 	for(i = 0; i < len-1; i++){
 		b[i] = a[i];
@@ -61,7 +61,7 @@ void removechar(char* a, char*b)
 	b[i] =  '\0';
 }
 
-int string_compare(char* str1, char* str2)
+int stringCompare(char* str1, char* str2)
 {
 	int i = 0;
 	int flag = 0;
