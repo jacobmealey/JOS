@@ -1,5 +1,7 @@
-// Shell for JOS
-// Jacob Mealey
+// shell.h
+// dumb shell for JOS
+// Author: Jacob Mealey
+
 #ifndef SHELL_H
 #define SHELL_H
 

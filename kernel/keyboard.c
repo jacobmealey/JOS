@@ -1,12 +1,13 @@
-// Keyboard.c 
-// Jacob Mealey
-// 
+// keyboard.c 
+// keyboard / ps2 driver for JOS
+// Author: Jacob Mealey
+
 #include "keyboard.h"
 #include "vga.h"
 #include "shell.h"
 #include "common.h"
 
-unsigned char kbdus[256] = {
+unsigned char keyboard_bus[256] = {
     0,  27, '1', '2', '3', '4', '5', '6', '7', '8',	/* 9 */
   '9', '0', '-', '=', '\b',	/* Backspace */
   '\t',			/* Tab */
@@ -94,9 +95,9 @@ void handleKeys()
 	if(key == 0x2A){			
 		key = getScancode();
 	
-		shWrite(kbdus[key + 90]);
+		shWrite(keyboard_bus[key + 90]);
 	}
 	else{
-	       	shWrite(kbdus[key]);
+	       	shWrite(keyboard_bus[key]);
 	}
 }

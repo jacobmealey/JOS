@@ -1,6 +1,9 @@
+// vga.c
 // VGA driver for JOS
-// Jacob Mealey
+// Author: Jacob Mealey
+//
 // modified code from PortOS
+
 #ifndef VGA_H
 #define VGA_H
 

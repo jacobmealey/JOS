@@ -1,6 +1,9 @@
-// common.h 
-// Jacob Mealey
-// Note! Some functions are from portOS 
+// common.h for all common tasks 
+// Author: Jacob Mealey
+//
+// note some functions and blocks of code are from PortOS [https://github.com/MatthewGallant/PortOS] 
+// and from CodeOS [https://github.com/Codepixl/CodeOS]
+
 #ifndef COMMON_H
 #define COMMON_H
 

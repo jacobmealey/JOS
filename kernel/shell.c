@@ -1,3 +1,7 @@
+// shell.c
+// dumb shell for JOS
+// Author: Jacob Mealey
+
 #include "shell.h"
 char *command_buffer = "\0";
 

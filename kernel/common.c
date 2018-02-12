@@ -1,7 +1,9 @@
-//common.c for all common tasks 
-//Jacob Mealey
+// common.c for all common tasks 
+// Author: Jacob Mealey
 //
-//note some functions and blocks of code are from PortOS a former project of mine
+// note some functions and blocks of code are from PortOS [https://github.com/MatthewGallant/PortOS] 
+// and from CodeOS [https://github.com/Codepixl/CodeOS]
+
 #include "common.h"
 
 

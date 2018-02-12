@@ -1,5 +1,8 @@
-/* Surely you will remove the processor conditionals and this comment
-sh_writezsh:1: command not found: 5*/
+// kernel.c 
+// Author: Jacob Mealey
+//
+// skeleton code from wiki.osdev.org
+
 #if !defined(__cplusplus)
 #include <stdbool.h> /* C doesn't have booleans by default. */
 #endif

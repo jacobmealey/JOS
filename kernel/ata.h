@@ -1,3 +1,8 @@
+// ata.h
+// ata driver for JOS
+// most code pulled from former project PortOS (https://github.com/MatthewGallant/PortOS)
+// Author: Jacob Mealey
+
 #ifndef ATA_H
 #define ATA_H
 

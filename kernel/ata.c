@@ -1,8 +1,11 @@
+// ata.c
+// ata driver for JOS
+// most code pulled from former project PortOS [https://github.com/MatthewGallant/PortOS]
+// Author: Jacob Mealey
+
 #include "common.h"
 #include "ata.h"
 
-// ata driver for JOS
-// most code pulled from former project PortOS (https://github.com/MatthewGallant/PortOS)
 uint8_t boot_disk = 0;
 uint8_t ata_buf[512];
 uint8_t ata_buf2[512];
