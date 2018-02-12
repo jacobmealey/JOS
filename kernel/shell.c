@@ -20,6 +20,9 @@ int commands_check(char * command)
 		if(isPartitionFAT32(0 , 0) != 1 ){
 			printf("No fat32 formatted disk!\nplease insert disk on port 0", red);
 		}
+		else{
+			printf("mkfile coming soon to a store near you", cyan);
+		}
 		return 1;
 	}
 	if(string_compare(command, "list")){
