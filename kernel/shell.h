@@ -14,6 +14,7 @@
 #include "vga.h"
 #include "common.h"
 #include "ata.h"
+#include "fat.h"
 void shInit();
 void clearBuffer();
 int commandCheck(char * command);

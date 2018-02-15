@@ -3,14 +3,13 @@
 // most code pulled from former project PortOS [https://github.com/MatthewGallant/PortOS]
 // Author: Jacob Mealey
 
-#include "common.h"
 #include "ata.h"
-
 uint8_t boot_disk = 0;
 uint8_t ata_buf[512];
 uint8_t ata_buf2[512];
 uint8_t *buf = ata_buf, *buf2 = ata_buf2;
 const char *fat32_sig = "FAT32   ";
+
 
 void prepareDisk(int disk, int address){
 	outb(0x1F1,0x00);
@@ -50,54 +49,9 @@ int getFirstPartition(int disk){
 	return pos;
 }
 
-int isPartitionFAT32(int disk, int sect){
-	readSector(disk, sect, buf);
-	for(int i = 0; i < 8; i++){
-		if(buf[0x52+i] != fat32_sig[i])
-			return 0; 
-	}
-	return 1;
-}
-void listFiles(int disk, int addr, int len){
-	int listed = 0;
-	for(int s = 0; s < len; s++){
 
-		prepareDisk(disk,addr+s);
 
-	  	unsigned char sect[512];
 
-		for(int i = 0; i < 255; i++){
-			uint16_t tmpword = (uint16_t)inw(0x1F0);
-			sect[i*2] = ((unsigned char)(tmpword));
-			sect[i*2+1] = ((unsigned char)(tmpword >> 8));
-		}
-		for(int i = 0; i < 512; i+=32){
-			if(sect[i+11] != 0x0f && sect[i] != 0xe5 && sect[i+11] != 0x08 && sect[i] != 0){
-				if(listed == 23){
-					printf("Press any key to continue...\n", normal);
-					pause();
-					listed = 0;
-				}
-				listed++;
-				putchar('\n', normal);
-				for(int j = 0; j < 11; j++){
-					if(sect[i+j] != 0x20)
-						putchar(sect[i+j], normal);
-					if(j == 7 && (sect[i+11] >> 4) != 0x1)
-						putchar('.', normal);
-				}
-				if((sect[i+11] >> 4) == 0x1){
-					printf(" <DIR>", normal);
-				}
-				printf(" ", normal);
-			}
-		}
-	}
-}
-void listAllFiles(int disk){
-	for (int i = 10; i < 20; i++)
-		listFiles(disk, i, 3021);
-}
 int getRoot(int disk)
 {
 	int position = getFirstPartition(disk);

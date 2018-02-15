@@ -23,6 +23,7 @@
 #include "keyboard.h"
 #include "shell.h"
 #include "ata.h"
+#include "fat.h"
 
 
 #if defined(__cplusplus)
