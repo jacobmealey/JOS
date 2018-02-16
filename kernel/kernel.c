@@ -19,10 +19,10 @@
 #error "This tutorial needs to be compiled with a ix86-elf compiler"
 #endif
  
+// Includes 
 #include "vga.h"
 #include "keyboard.h"
 #include "shell.h"
-#include "ata.h"
 #include "fat.h"
 
 

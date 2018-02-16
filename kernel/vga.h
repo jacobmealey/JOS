@@ -12,6 +12,7 @@
 #endif
 #include <stddef.h>
 #include <stdint.h>
+
 void clear_screen(uint8_t color);
 
 void putchar(char c, uint8_t color);

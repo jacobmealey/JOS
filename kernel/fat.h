@@ -4,7 +4,6 @@
 #include "common.h"
 
 typedef struct fat32part{
-
 	uint8_t disk;
 	uint16_t part_sect;
 	uint8_t sectors_per_cluster;

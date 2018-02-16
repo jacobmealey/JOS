@@ -3,17 +3,20 @@
 // Author: Jacob Mealey
 
 #include "shell.h"
+
 char *command_buffer = "\0";
 
 void clearBuffer()
 {
 		command_buffer = command_buffer - stringLength(command_buffer);
 }
+
 void shInit()
 {
 	printf("JOS v0.0.1\n", normal);
 	putchar('>', normal);
 }
+
 int commandCheck(char * command)
 {
 	if(stringCompare(command, "clear")){

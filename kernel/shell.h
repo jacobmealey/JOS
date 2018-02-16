@@ -5,16 +5,14 @@
 #ifndef SHELL_H
 #define SHELL_H
 
-#if !defined(__cplusplus)
-#include <stdbool.h> /* C doesn't have booleans by default. */
-#endif
-
+// Includes
 #include <stddef.h>
 #include <stdint.h>
 #include "vga.h"
 #include "common.h"
 #include "ata.h"
 #include "fat.h"
+
 void shInit();
 void clearBuffer();
 int commandCheck(char * command);
