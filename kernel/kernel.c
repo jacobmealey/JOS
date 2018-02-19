@@ -33,8 +33,9 @@ void kernel_main(void)
 {
 
 		clear_screen(normal);
+		setupDisk();
 		//pretty simple, just detecting if the drive is fat32 
-		if(isPartitionFAT32(0, 0) == 1){
+		if(current_fat32.is_fat){
 			printf("FAT32 disk in\n", green);
 		}else{
 			printf("No fat32 disk detected!\n", red);

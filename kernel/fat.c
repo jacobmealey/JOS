@@ -1,13 +1,23 @@
 #include "fat.h"
 #include "ata.h"
 #include "common.h"
-int isPartitionFAT32(int disk, int sect){
+
+fat32part current_fat32;
+uint8_t boot_disk = 0;
+uint8_t *buf = ata_buf, *buf2 = ata_buf2;
+const char *fat32_sig = "FAT32   ";
+
+void setupDisk()
+{
+	isPartitionFAT32(0, 0);
+}
+void isPartitionFAT32(int disk, int sect){
 	readSector(disk, sect, buf);
 	for(int i = 0; i < 8; i++){
 		if(buf[0x52+i] != fat32_sig[i])
-			return 0; 
+			current_fat32.is_fat = 0;
 	}
-	return 1;
+	current_fat32.is_fat = 1;
 }
 void listFiles(int disk, int addr, int len){
 	int listed = 0;

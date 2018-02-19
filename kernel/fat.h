@@ -2,6 +2,12 @@
 #define FAT_H
 
 #include "common.h"
+uint8_t boot_disk;
+uint8_t ata_buf[512];
+uint8_t ata_buf2[512];
+uint8_t *buf, *buf2;
+const char *fat32_sig; 
+
 
 typedef struct fat32part{
 	uint8_t disk;
@@ -15,9 +21,12 @@ typedef struct fat32part{
 	uint16_t reserved_sectors;
 	uint32_t fat_sect;
 	uint32_t current_dir_clust;
+	uint8_t is_fat;
 } fat32part;
+fat32part current_fat32;
 
-int isPartitionFAT32(int disk, int sect);
+void setupDisk();
+void isPartitionFAT32(int disk, int sect);
 void listFiles(int disk, int addr, int len);
 void listAllFiles(int disk);
 #endif

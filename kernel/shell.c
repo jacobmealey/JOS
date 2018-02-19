@@ -24,7 +24,7 @@ int commandCheck(char * command)
 		return 1;
 	}
 	if(stringCompare(command, "mkfile")){
-		if(isPartitionFAT32(0 , 0) != 1 ){
+		if(current_fat32.is_fat){
 			printf("No fat32 formatted disk!\nplease insert disk on port 0", red);
 		}
 		else{
