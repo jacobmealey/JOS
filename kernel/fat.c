@@ -11,6 +11,7 @@ void setupDisk()
 {
 	isPartitionFAT32(0, 0);
 }
+
 void isPartitionFAT32(int disk, int sect){
 	readSector(disk, sect, buf);
 	for(int i = 0; i < 8; i++){

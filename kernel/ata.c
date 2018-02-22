@@ -44,9 +44,6 @@ int getFirstPartition(int disk){
 	return pos;
 }
 
-
-
-
 int getRoot(int disk)
 {
 	int position = getFirstPartition(disk);
