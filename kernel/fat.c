@@ -99,5 +99,6 @@ void listAllFiles(int disk){
 	}
 	*/
 	listFiles(disk, 18, 3021);
+	listFiles(disk, 18, 3021);
 
 }
