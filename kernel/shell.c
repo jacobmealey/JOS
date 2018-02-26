@@ -14,6 +14,10 @@ void clearBuffer()
 void shInit()
 {
 	printf("JOS v0.0.1\n", normal);
+}
+
+void prompt()
+{
 	putchar('>', normal);
 }
 

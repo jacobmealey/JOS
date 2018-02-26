@@ -34,6 +34,7 @@ void kernel_main(void)
 
 		clear_screen(normal);
 		setupDisk();
+		shInit();
 		//pretty simple, just detecting if the drive is fat32 
 		if(current_fat32.is_fat){
 			printf("FAT32 disk in\n", green);
@@ -50,7 +51,7 @@ void kernel_main(void)
 		printf("\n", normal);
 
 		//initialization of the terminal/shell
-		shInit();
+		prompt();
 		while(true)
 			handleKeys();
 }

@@ -14,6 +14,7 @@
 #include "fat.h"
 
 void shInit();
+void prompt();
 void clearBuffer();
 int commandCheck(char * command);
 void shWrite(char data);
