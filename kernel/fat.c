@@ -41,7 +41,6 @@ void listFiles(int disk, int addr, int len){
 					listed = 0;
 				}
 				listed++;
-				putchar('\n', normal);
 				for(int j = 0; j < 11; j++){
 					if(sect[i+j] != 0x20)
 						putchar(sect[i+j], normal);
@@ -57,6 +56,6 @@ void listFiles(int disk, int addr, int len){
 	}
 }
 void listAllFiles(int disk){
-	for (int i = 10; i < 20; i++)
+	for (int i = 10; i < 20; i = i + 2)
 		listFiles(disk, i, 3021);
 }
