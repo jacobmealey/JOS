@@ -44,28 +44,7 @@ int getFirstPartition(int disk){
 	return pos;
 }
 
-int getRoot(int disk)
-{
-	int position = getFirstPartition(disk);
-	prepareDisk(0, position);
-	int rsects = 0;
-	int fats = 0;
-	int size = 0;
 
-	for (int i = 0; i < 255; i++){
-		uint16_t tmpword = (uint16_t)inw(0x1F0);
-		if(i == 0x7){
-			rsects = (uint16_t)(tmpword);
-		}
-		if(i == 0x8){
-			fats = (uint16_t)(tmpword);
-		}
-		if(i == 0xb){
-			size = tmpword;
-		}
-	}
-	return fats*size+rsects+position;
-}
 int getRootEntries(int disk)
 {
 	prepareDisk(disk, getFirstPartition(disk));

@@ -10,8 +10,41 @@ const char *fat32_sig = "FAT32   ";
 void setupDisk()
 {
 	isPartitionFAT32(0, 0);
+
 }
 
+int getFirstPart(int disk)
+{
+	prepareDisk(disk, 0);
+	uint16_t pos = 0;
+	for(int i = 0; i <= 255; i++){
+		uint16_t tmpword = (uint16_t)inw(0x1F0);
+		if(i == 227){
+			pos = tmpword;
+		}
+	}
+	return pos;
+}
+
+int getRoot(int disk)
+{
+	int pos = getFirstPart(disk);
+	prepareDisk(0, pos);
+	int reserved_sectors = 0;
+	int fats = 0;
+	int size = 0;
+
+	for(int i = 0; i < 255; i++){
+		uint16_t tmpword = (uint16_t)inw(0x1F0);
+		if(i == 0x7)
+			reserved_sectors = (char)(tmpword);
+		if(i == 0x8)
+			fats = (char)(tmpword);
+		if(i == 0xb)
+			size = tmpword;
+	}
+	return fats*size+reserved_sectors+pos;
+}
 void isPartitionFAT32(int disk, int sect){
 	readSector(disk, sect, buf);
 	for(int i = 0; i < 8; i++){
@@ -56,6 +89,12 @@ void listFiles(int disk, int addr, int len){
 	}
 }
 void listAllFiles(int disk){
-	for (int i = 10; i < 20; i = i + 2)
+	/*
+	for (int i = 8; i < 32; i++){
+		printInt(i, red);
 		listFiles(disk, i, 3021);
+	}
+	*/
+	listFiles(disk, 18, 3021);
+
 }

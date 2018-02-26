@@ -26,6 +26,8 @@ typedef struct fat32part{
 fat32part current_fat32;
 
 void setupDisk();
+int getFirstPart(int disk);
+int getRoot(int disk);
 void isPartitionFAT32(int disk, int sect);
 void listFiles(int disk, int addr, int len);
 void listAllFiles(int disk);

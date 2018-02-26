@@ -23,7 +23,6 @@ void readSector(int disk, int address, uint8_t *sect);
 void prepareDisk(int disk, int address);
 void readSectors(int disk, int address, int sectors, uint8_t *sect);
 int getFirstPartition(int disk);
-int getRoot(int disk);
 int getRootEntries(int disk);
 
 #endif

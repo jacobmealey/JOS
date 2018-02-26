@@ -40,6 +40,15 @@ void kernel_main(void)
 		}else{
 			printf("No fat32 disk detected!\n", red);
 		}
+
+		printf("First Partition at: ", green);
+		printInt(getFirstPart(0), normal);
+		printf("\n", normal);
+
+		printf("Root Dir at: ", green);
+		printInt(getRoot(0), normal);
+		printf("\n", normal);
+
 		//initialization of the terminal/shell
 		shInit();
 		while(true)
