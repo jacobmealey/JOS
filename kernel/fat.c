@@ -45,6 +45,7 @@ int getRoot(int disk)
 	}
 	return fats*size+reserved_sectors+pos;
 }
+
 void isPartitionFAT32(int disk, int sect){
 	readSector(disk, sect, buf);
 	for(int i = 0; i < 8; i++){
@@ -53,6 +54,7 @@ void isPartitionFAT32(int disk, int sect){
 	}
 	current_fat32.is_fat = 1;
 }
+
 void listFiles(int disk, int addr, int len){
 	int listed = 0;
 	for(int s = 0; s < len; s++){
@@ -88,6 +90,7 @@ void listFiles(int disk, int addr, int len){
 		}
 	}
 }
+
 void listAllFiles(int disk){
 	/*
 	for (int i = 8; i < 32; i++){
