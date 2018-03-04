@@ -33,15 +33,16 @@ void kernel_main(void)
 {
 
 		clear_screen(normal);
-		setupDisk();
 		shInit();
+		setupDisk();
 		//pretty simple, just detecting if the drive is fat32 
-		if(current_fat32.is_fat){
+		if(currentfat32part.is_fat){
 			printf("FAT32 disk in\n", green);
 		}else{
 			printf("No fat32 disk detected!\n", red);
 		}
 
+		/*
 		printf("First Partition at: ", green);
 		printInt(getFirstPart(0), normal);
 		printf("\n", normal);
@@ -49,6 +50,7 @@ void kernel_main(void)
 		printf("Root Dir at: ", green);
 		printInt(getRoot(0), normal);
 		printf("\n", normal);
+		*/
 
 		//initialization of the terminal/shell
 		prompt();

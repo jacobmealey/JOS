@@ -16,10 +16,12 @@ echo "compiling ata driver"
 i386-elf-gcc -c kernel/ata.c -o kernel/ata.o -std=gnu99 -ffreestanding -O2 -Wall -Wextra
 echo "compiling fat"
 i386-elf-gcc -c kernel/fat.c -o kernel/fat.o -std=gnu99 -ffreestanding -O2 -Wall -Wextra
+echo "compiling heap"
+i386-elf-gcc -c kernel/heap.c -o kernel/heap.o -std=gnu99 -ffreestanding -O2 -Wall -Wextra
 echo "Linking Kernel and Bootloader"
 i386-elf-gcc -T linker.ld -o JOS.bin -ffreestanding -O2 -nostdlib\
        	boot.o kernel/keyboard.o kernel/common.o kernel/shell.o kernel/kernel.o kernel/vga.o\
-	kernel/ata.o kernel/fat.o -lgcc
+	kernel/ata.o kernel/fat.o kernel/heap.o -lgcc
 echo "cleaning up"
 rm *.o
 rm kernel/*.o

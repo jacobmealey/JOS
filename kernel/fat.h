@@ -1,13 +1,5 @@
-#ifndef FAT_H
-#define FAT_H
-
-#include "common.h"
-uint8_t boot_disk;
-uint8_t ata_buf[512];
-uint8_t ata_buf2[512];
-uint8_t *buf, *buf2;
-const char *fat32_sig; 
-
+#ifndef FAT32_H
+#define FAT32_H
 
 typedef struct fat32part{
 	uint8_t disk;
@@ -23,12 +15,37 @@ typedef struct fat32part{
 	uint32_t current_dir_clust;
 	uint8_t is_fat;
 } fat32part;
-fat32part current_fat32;
+
+typedef struct fat32file{
+	uint32_t cluster;
+	uint32_t size;
+	uint32_t dir_cluster;
+	uint8_t attrib;
+} fat32file;
+
+fat32part currentfat32part;
+
 
 void setupDisk();
-int getFirstPart(int disk);
-int getRoot(int disk);
 void isPartitionFAT32(int disk, int sect);
-void listFiles(int disk, int addr, int len);
-void listAllFiles(int disk);
+fat32part getFat32Part(int disk, int part_sect);
+uint32_t clusterToLBA(uint32_t cluster);
+uint32_t clusterToLBAOther(fat32part p, uint32_t cluster);
+void setCurrentFat32part(fat32part p);
+void listDir(uint32_t cluster, char *filter);
+void listCurrentDir(char *filter);
+uint8_t changeDir(char *dir);
+uint8_t changeOneDir(char *dir);
+int isDirectory(fat32file file);
+fat32file getFile(char *file);
+int exists(fat32file file);
+uint32_t getClusterOfEntry(uint8_t *entry);
+uint32_t getClusterChainSize(uint32_t cluster);
+uint32_t getFATSectorForCluster(uint32_t cluster);
+uint32_t getNextCluster(uint32_t cluster);
+uint32_t getClusterOfFile(char *file);
+void printFileContents(fat32file f);
+void printCurrentDir();
+fat32part getCurrentFat32Part();
+
 #endif

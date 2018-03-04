@@ -28,16 +28,11 @@ int commandCheck(char * command)
 		return 1;
 	}
 	if(stringCompare(command, "mkfile")){
-		if(current_fat32.is_fat){
-			printf("No fat32 formatted disk!\nplease insert disk on port 0", red);
-		}
-		else{
-			printf("mkfile coming soon to a store near you", cyan);
-		}
 		return 1;
 	}
 	if(stringCompare(command, "list")){
-		listAllFiles(0);
+		//listAllFiles(0);
+		//listContents(10);
 		return 1;
 	}
 	return 0;

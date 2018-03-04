@@ -91,3 +91,112 @@ void pause()
 	while(inb(0x60) & 0x80);
 
 }
+
+void println(char * string)
+{
+	printf(string, normal);
+	printf("\n", normal);
+}
+
+int indexOf(char c, char * string)
+{
+	int i = 0;
+	while(string[i] != '\0'){
+		if(string[i] == c)
+			return i;
+		i++;
+	}
+	return stringLength(string);
+}
+
+int indexOfn(char c, int n, char * string)
+{
+	int i = 0;
+	int count = 0;
+	while(string[i] != '\0'){
+		if(string[i] == c){
+			if(count == n){
+				return i;
+			}
+			else{
+				count++;
+			}
+		}
+		i++;
+	}
+	return stringLength(string);
+}
+
+void substr(int i, char * src, char * dest)
+{
+	memcpy(dest, src, i);
+	dest[i] = '\0';
+}
+
+void substrr(int s, int e, char* source, char* destination)
+{
+	memcpy(destination, &source[s], e-s);
+	destination[e-s] = '\0';
+}
+
+
+void strcpy(char* string_one, char* string_two)
+{
+	int i = 0;
+	while(string_one[i] != '\0')
+		string_two[i] = string_one[i];
+}
+
+void * memcpy(void * dest, const void * src, size_t count)
+{
+	const char *sp  = (const char*) src;
+	char *dp = (char *) dest;
+	for(; count != 0; count--)
+		*dp++ = *sp++;
+	return dest;
+}
+
+int strcmp(char* str1, char* str2)
+{
+	int i = 0;
+	int flag = 1;
+
+	for(;str1[i] != '\0' && str2[i] != '\0'; i++){
+		if(str1[i] != str2[i]){
+			flag = 0;
+			return flag;
+		}
+	}
+	return flag;
+}
+
+int contains(char * string, char* contained)
+{
+	int i = 0;
+	int contlen = stringLength(contained);
+	int flag_a = 0;
+	int flag_b = 0;
+	while(string[i+contlen-1] != '\0'){
+		flag_b = 1;
+		for(int j = 0; j < stringLength(contained); j++){
+			if(contained[j] != string[i + j])
+				flag_b = 0;
+		}
+		if(flag_b){
+			flag_a = 1;
+		}
+		i++;
+	}
+	return flag_a;
+}
+
+int countOf(char c, char *str)
+{
+	 //Returns number of instances of c in str
+	 int count = 0;
+	 for(int i = 0; i < stringLength(str); i++){
+	 	if(str[i] == c)
+			count++;
+	 }
+	 return count;
+}

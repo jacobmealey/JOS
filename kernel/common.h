@@ -18,6 +18,7 @@
 #include <stdint.h>
 
 #include "vga.h"
+#include "heap.h"
 
 #define normal 0x0F
 #define blue 0x01
@@ -42,5 +43,15 @@ int stringLength(char* string);
 void concatChar(char* a, char b, char* c);
 void removeChar(char* a, char* b);
 int stringCompare(char* str1, char* str2);
+void println(char * string);
 void pause();
+int indexOf(char c, char * string);
+int indexOfn(char c, int n, char * string);
+void substr(int i, char * src, char * dest);
+void strcpy(char* string_one, char* string_two);
+void substrr(int s, int e, char* source, char* destination);
+void * memcpy(void * dest, const void * src, size_t count);
+int strcmp(char* str1, char* str2);
+int contains(char * string, char* contained);
+int countOf(char c, char *str);
 #endif
