@@ -21,22 +21,22 @@ void prompt()
 	putchar('>', normal);
 }
 
-int commandCheck(char * command)
+
+
+void commandCheck(char * command)
 {
 	if(stringCompare(command, "clear")){
 		clear_screen(normal);
-		return 1;
 	}
 	if(stringCompare(command, "mkfile")){
-		return 1;
+		printf("Coming soon to an OS near you :)", light_purple);
 	}
 	if(stringCompare(command, "list")){
-		//listAllFiles(0);
-		//listContents(10);
-		return 1;
+		printFileContents(currentFile);
+		println("");
 	}
-	return 0;
 }
+
 void shWrite(char data)
 {
 	putchar(data, normal);
@@ -44,7 +44,6 @@ void shWrite(char data)
 	{
 		commandCheck(command_buffer);
 		clearBuffer();
-		putchar('\n', normal);
 		putchar('>', normal);
 	}
 	else

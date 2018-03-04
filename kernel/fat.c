@@ -5,18 +5,18 @@
 
 const char *fat32sig = "FAT32   ";
 fat32part currentfat32part;
-char *cdir = 0;
+char *cdir;
 extern int xpos, ypos;
 uint8_t ata_buf[512], ata_buf2[512];
 uint8_t *buf = ata_buf, *buf2 = ata_buf2;
 
 void setupDisk()
 {
+	currentfat32part = getFat32Part(0, 0);
 	isPartitionFAT32(0, 0);
 }
 void isPartitionFAT32(int disk, int sect){
 	readSector(disk, sect, buf);
-	int flag = 0;
 	for(int i = 0; i < 8; i++){
 		if(buf[0x52+i] != fat32sig[i]){
 			currentfat32part.is_fat = 0;
@@ -25,6 +25,7 @@ void isPartitionFAT32(int disk, int sect){
 	currentfat32part.is_fat = 1;
 }
 
+// major init code, sets up all data for fat32part
 fat32part getFat32Part(int disk, int part_sect){
 	fat32part temp;
 	temp.disk = disk;
@@ -443,7 +444,10 @@ fat32part getCurrentFat32Part(){
 //I will definitely make a better system sometime in the future (Maybe *MAYBE* Elf loading) where programs run in userspace
 //and don't use a horrible system for memory allocation. But for now this is what we have.
 void printCurrentDir(){
-	if(cdir == 0) cdir = String("/");
+	if(cdir == 0) 
+		cdir = String("/");
+	else
+		println("hello");
 	println(cdir);
 	return;
 }

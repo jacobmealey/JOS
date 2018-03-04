@@ -23,8 +23,8 @@ typedef struct fat32file{
 	uint8_t attrib;
 } fat32file;
 
+fat32file currentFile;
 fat32part currentfat32part;
-
 
 void setupDisk();
 void isPartitionFAT32(int disk, int sect);

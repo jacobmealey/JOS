@@ -7,7 +7,7 @@
 #include "shell.h"
 #include "common.h"
 
-unsigned char keyboard_bus[256] = {
+static char keyboard_bus[256] = {
     0,  27, '1', '2', '3', '4', '5', '6', '7', '8',	/* 9 */
   '9', '0', '-', '=', '\b',	/* Backspace */
   '\t',			/* Tab */
@@ -90,14 +90,15 @@ char getScancode()
 }
 void handleKeys()
 {
-	char key = getScancode();
+	unsigned char key = getScancode();
 		
 	if(key == 0x2A){			
 		key = getScancode();
 	
 		shWrite(keyboard_bus[key + 90]);
 	}
-	else{
+	else if(key < 54){
+		//printInt(key, red);
 	       	shWrite(keyboard_bus[key]);
 	}
 }

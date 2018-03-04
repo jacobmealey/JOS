@@ -12,7 +12,7 @@
 #include <stddef.h>
 #include <stdint.h>
 
-unsigned char keyboard_bus[256];
+static char keyboard_bus[256];
 char getScancode();
 void handleKeys();
 

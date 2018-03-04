@@ -23,7 +23,7 @@ Frame first_available_frame(){
 			}
 		}
 	}
-	printf("PANIC", normal);
+	return frbuf;
 }
 
 FrameSet first_available_frameset(uint32_t len){ //len is the amount of 16byte frames, not bytes.
@@ -55,7 +55,7 @@ FrameSet first_available_frameset(uint32_t len){ //len is the amount of 16byte f
 FrameSet fsalloc(uint32_t len){
 	first_available_frameset(len);
 	Frame buf;
-	for(int i = 0; i < frsbuf.len; i++){
+	for(unsigned int i = 0; i < frsbuf.len; i++){
 		buf = getFrame(i+frsbuf.start.num);
 		frames[buf.set] |= 1 << buf.pos;
 	}
@@ -80,7 +80,7 @@ Frame falloc(){
 	f.set = frbuf.set;
 	f.num = frbuf.num;
 	f.pos = frbuf.pos;
-	return frbuf;
+	return f;
 }
 
 void ffree(Frame f){
@@ -97,7 +97,7 @@ uint32_t kfreebuf;
 void kfree(void *ptr, uint32_t len){
 	kfreebuf = (uint32_t)ptr-(uint32_t)&heap_space;
 	kfreebuf/=0x10;
-	for(int i = 0; i < len/0x10+1; i++){
+	for(unsigned int i = 0; i < len/0x10+1; i++){
 		frbuf = getFrame(i+kfreebuf);
 		ffree(frbuf);
 	}

@@ -16,6 +16,6 @@
 void shInit();
 void prompt();
 void clearBuffer();
-int commandCheck(char * command);
+void commandCheck(char * command);
 void shWrite(char data);
 #endif
