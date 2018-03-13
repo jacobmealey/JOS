@@ -15,6 +15,7 @@ void setupDisk()
 	currentfat32part = getFat32Part(0, 0);
 	isPartitionFAT32(0, 0);
 }
+
 void isPartitionFAT32(int disk, int sect){
 	readSector(disk, sect, buf);
 	for(int i = 0; i < 8; i++){
@@ -124,17 +125,20 @@ void listDir(uint32_t cluster, char *filter){
 					char name[lastChar+6];
 					for(int i = 0; i < lastChar+1; i++){
 						if(lcfn) //If filename is all lowercase
-							if(buf[loc+i] > 0x40 && buf[loc+i] < 0x5B) //If current character is a letter
+							//If current character is a letter
+							if(buf[loc+i] > 0x40 && buf[loc+i] < 0x5B) 
 								name[i] = buf[loc+i]+32;
 							else
 								name[i] = buf[loc+i];
 						else
 							name[i] = buf[loc+i];
 					}
-					if(!(buf[loc+8] == ' ' && buf[loc+9] == ' ' && buf[loc+10] == ' ')){ //If there is not no extension
+					//If there is not no extension
+					if(!(buf[loc+8] == ' ' && buf[loc+9] == ' ' && buf[loc+10] == ' ')){ 
 						for(int i = 0; i < 3; i++){
 							if(lcex) //If extension is all lowercase
-								if(buf[loc+i+8] > 0x40 && buf[loc+i+8] < 0x5B) //If current character is a letter
+								//If current character is a letter
+								if(buf[loc+i+8] > 0x40 && buf[loc+i+8] < 0x5B) 
 									name[i+lastChar+2] = buf[loc+8+i]+32;
 								else
 									name[i+lastChar+2] = buf[loc+8+i];
@@ -423,7 +427,7 @@ void printFileContents(fat32file file){
 				readSector(currentfat32part.disk, clusterToLBA(ccluster)+j, buf2);
 				printf("contents: \n", normal);
 				for(int i = 0; i < 256; i++){
-					printInt(buf2[i], 0xCF);
+					putchar(buf2[i], 0xCF);
 				}
 			}
 			ccluster = getNextCluster(ccluster);
