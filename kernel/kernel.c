@@ -35,7 +35,7 @@ void kernel_main(void)
 		clear_screen(normal);
 		shInit();
 		setupDisk();
-		fat32file currentFile = getFile("text.txt");
+		currentFile = getFile("TEXT.TXT");
 		//pretty simple, just detecting if the drive is fat32 
 		if(currentfat32part.is_fat){
 			printf("FAT32 disk in\n", green);
@@ -51,6 +51,7 @@ void kernel_main(void)
 		printInt(currentfat32part.root_dir_sect, normal);
 		printf("\n", normal);
 
+		printf("next cluster: ", normal);
 		printInt(getNextCluster(0), normal);
 		println("");
 		//initialization of the terminal/shell

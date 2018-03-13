@@ -421,16 +421,15 @@ void printFileContents(fat32file file){
 		while(!done){
 			for(int j = 0; j < currentfat32part.sectors_per_cluster; j++){
 				readSector(currentfat32part.disk, clusterToLBA(ccluster)+j, buf2);
+				printf("contents: \n", normal);
 				for(int i = 0; i < 256; i++){
-					if(buf2[i] != 0)
-						putchar(buf2[i], normal);
+					printInt(buf2[i], 0xCF);
 				}
 			}
 			ccluster = getNextCluster(ccluster);
 			if(ccluster >= 0x0FFFFFF8)
 				done = 1;
 		}
-		println("");
 	}
 }
 

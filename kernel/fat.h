@@ -21,10 +21,11 @@ typedef struct fat32file{
 	uint32_t size;
 	uint32_t dir_cluster;
 	uint8_t attrib;
+	char* name; 
 } fat32file;
 
-fat32file currentFile;
 fat32part currentfat32part;
+fat32file currentFile;
 
 void setupDisk();
 void isPartitionFAT32(int disk, int sect);

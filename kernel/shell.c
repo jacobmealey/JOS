@@ -32,6 +32,10 @@ void commandCheck(char * command)
 		printf("Coming soon to an OS near you :)", light_purple);
 	}
 	if(stringCompare(command, "list")){
+		if(exists(currentFile)){
+			printf("File Does Exist",normal);
+		}
+		println("");
 		printFileContents(currentFile);
 		println("");
 	}

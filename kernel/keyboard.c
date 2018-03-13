@@ -97,7 +97,7 @@ void handleKeys()
 	
 		shWrite(keyboard_bus[key + 90]);
 	}
-	else if(key < 54){
+	if(key < 54){
 		//printInt(key, red);
 	       	shWrite(keyboard_bus[key]);
 	}
