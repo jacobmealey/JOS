@@ -441,11 +441,6 @@ fat32part getCurrentFat32Part(){
 	return currentfat32part;
 }
 
-//Please ignore how horrible this is atm
-//This is a VERY VERY VERY rudimentary executable implementation
-//Executables run in kernel space, and they are put into the main kernel heap.
-//I will definitely make a better system sometime in the future (Maybe *MAYBE* Elf loading) where programs run in userspace
-//and don't use a horrible system for memory allocation. But for now this is what we have.
 void printCurrentDir(){
 	if(cdir == 0) 
 		cdir = String("/");

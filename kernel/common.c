@@ -23,7 +23,7 @@ uint16_t inw(uint16_t port)
 	return ret;
 }
 
-//inb for getting data in between I/O ports
+//outbfor getting data in between I/O ports
 //imperative for VGA driver! 
 void outb(uint16_t port, uint8_t value)
 {
@@ -33,6 +33,7 @@ void outb(uint16_t port, uint8_t value)
 int stringLength(char* string)
 {
 	int i = 0;
+	// '\0' represents the end of a string
 	while(string[i] != '\0')	
 	{
 		i++;
@@ -63,6 +64,7 @@ void removeChar(char* a, char*b)
 	b[i] =  '\0';
 }
 
+// --> Can this be made more efficiant? 
 int stringCompare(char* str1, char* str2)
 {
 	int i = 0;
@@ -86,12 +88,15 @@ int stringCompare(char* str1, char* str2)
 	}
 }
 
+// This will pause until there is input from a PS/2 device
 void pause()
 {
 	while(inb(0x60) & 0x80);
 
 }
 
+// All of the functions below were to make the PortOS/CodeOS 
+// Drivers work
 void println(char * string)
 {
 	printf(string, normal);
