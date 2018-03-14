@@ -15,8 +15,7 @@ building an Operating System.
      - compiler (?)
   - OPTIMIZE 
 
-JOS is written completely in C at the moment but I am looking to implement other languages into the code base where I see fit,
-it would be nice to have rust compatibility, and C++ should be easy to implement I just haven't found a use for it yet. 
+JOS is written completely in C (and a bit of assembly) at the moment but I am looking to implement other languages into the code base where I see fit, it would be nice to have rust compatibility, and C++ should be easy to implement I just haven't found a use for it yet. 
 
 
 #### Information and other sources:
