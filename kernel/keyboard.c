@@ -94,12 +94,19 @@ void handleKeys()
 		
 	// NOTE: Maybe try using a while loop for this 
 	// in order to do more then one key while shifted
-	if(key == 0x2A){			
-		key = getScancode();
-	
-		shWrite(keyboard_bus[key + 90]);
+	if (key == 0x2A){			
+		while(1){
+			unsigned char key_shift = getScancode();
+			// If shift is released
+			if(key_shift == 0xAA)
+				return;
+			else if (key_shift >= 0x81)
+				0;
+			else
+				shWrite(keyboard_bus[key_shift + 90]);
+		}
 	}
-	if(key < 54){
+	else if(key < 54){
 		// Pushing to shell so the characters can be 
 		// handled by a more complex system then the VGA driver
 	       	shWrite(keyboard_bus[key]);
