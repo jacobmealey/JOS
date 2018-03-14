@@ -92,6 +92,7 @@ void handleKeys()
 {
 	unsigned char key = getScancode();
 		
+	// If shift is pressed
 	if (key == 0x2A){			
 		while(1){
 			unsigned char key_shift = getScancode();
@@ -105,7 +106,7 @@ void handleKeys()
 				shWrite(keyboard_bus[key_shift + 90]);
 		}
 	}
-	else if(key < 54){
+	else if(key < 0x54){
 		// Pushing to shell so the characters can be 
 		// handled by a more complex system then the VGA driver
 	       	shWrite(keyboard_bus[key]);
