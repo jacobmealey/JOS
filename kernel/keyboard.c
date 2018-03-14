@@ -92,8 +92,6 @@ void handleKeys()
 {
 	unsigned char key = getScancode();
 		
-	// NOTE: Maybe try using a while loop for this 
-	// in order to do more then one key while shifted
 	if (key == 0x2A){			
 		while(1){
 			unsigned char key_shift = getScancode();
