@@ -100,8 +100,9 @@ void handleKeys()
 			// If shift is released
 			if(key_shift == 0xAA)
 				return;
+			// if any key is released do nothing
 			else if (key_shift >= 0x81)
-				0;
+				;
 			else
 				shWrite(keyboard_bus[key_shift + 90]);
 		}
