@@ -427,7 +427,7 @@ void printFileContents(fat32file file){
 				readSector(currentfat32part.disk, clusterToLBA(ccluster)+j, buf2);
 				printf("contents: \n", normal);
 				for(int i = 0; i < 256; i++){
-					putchar(buf2[i], 0xCF);
+					putchar(buf2[i], light_grey);
 				}
 			}
 			ccluster = getNextCluster(ccluster);
