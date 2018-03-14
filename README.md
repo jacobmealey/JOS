@@ -6,7 +6,7 @@ filesystems are compiled into the kernel) I do not believe this is the best appr
 building an Operating System. 
 
 #### Todo:
-  - be able to list the contents of a file
+  - ~~be able to list the contents of a file~~
   - be able to create and delete files 
   - build a unix-like file structure (/bin , /usr, /home etc)
   - start building userspace applications
