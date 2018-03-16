@@ -4,9 +4,10 @@
 
 #include "files.h"
 
-int makeFile(const char* file_name)
+int makeFile(char* file_name)
 {
 	printf("Making file: ", normal);
 	printf(file_name, normal);
+	printf("(Not really ATM)\n", normal);
 	return 1;
 }

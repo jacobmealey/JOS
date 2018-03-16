@@ -1,6 +1,7 @@
 #ifndef HEAP_H
 #define HEAP_H
 
+#include "common.h"
 typedef struct Frame{
 	uint32_t num; //The number of the frame.
 	uint32_t set; //The set the frame is in (There are 8 frames in a set)

@@ -1,6 +1,10 @@
 #ifndef FAT32_H
 #define FAT32_H
 
+#include "heap.h"
+#include "common.h"
+#include "ata.h"
+
 typedef struct fat32part{
 	uint8_t disk;
 	uint16_t part_sect;

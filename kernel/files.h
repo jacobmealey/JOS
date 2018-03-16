@@ -17,7 +17,8 @@
 
 
 #include "common.h"
+#include "fat.h"
 
-int makeFile(const char* file_name);
+int makeFile(char* file_name);
 
 #endif

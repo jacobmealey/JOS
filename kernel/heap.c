@@ -1,4 +1,3 @@
-#include "common.h"
 #include "heap.h"
 
 uint8_t heap_space[0x100000]; //1MiB of heap space

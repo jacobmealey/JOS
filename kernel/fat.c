@@ -1,7 +1,4 @@
-#include "common.h"
-#include "ata.h"
 #include "fat.h"
-#include "heap.h"
 
 const char *fat32sig = "FAT32   ";
 fat32part currentfat32part;

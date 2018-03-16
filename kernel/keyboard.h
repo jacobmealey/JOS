@@ -5,6 +5,10 @@
 #ifndef KEYBOARD_H
 #define KEYBOARD_H
 
+#include "vga.h"
+#include "shell.h"
+#include "common.h"
+
 #if !defined(__cplusplus)
 #include <stdbool.h> /* C doesn't have booleans by default. */
 #endif
