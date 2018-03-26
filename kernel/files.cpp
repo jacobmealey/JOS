@@ -6,8 +6,8 @@ extern "C"{
   #include "files.h"
   #include "common.h"
 
+  files file;
   int makefile(char* file_name){
-    files file;
     return file.makeFile(file_name);
   }
 }

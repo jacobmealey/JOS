@@ -1,6 +1,9 @@
 // Files.h
 // File handling API for JOS
 // Author: Jacob Mealey
+//
+// When using C++ in C you can't actually include the header
+// you just use implicit declerations
 
 #ifndef FILES_H
 #define FILES_H
