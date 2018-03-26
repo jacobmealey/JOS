@@ -19,9 +19,10 @@ i386-elf-gcc -c kernel/fat.c -o kernel/fat.o -std=gnu99 -ffreestanding -O2 -Wall
 echo "compiling heap"
 i386-elf-gcc -c kernel/heap.c -o kernel/heap.o -std=gnu99 -ffreestanding -O2 -Wall -Wextra
 echo "compiling files"
-i386-elf-gcc -c kernel/files.c -o kernel/files.o -std=gnu99 -ffreestanding -O2 -Wall -Wextra
+i386-elf-g++ -c kernel/files.cpp -o kernel/files.o -static-libstdc++  -ffreestanding -O2 -Wall -Wextra -Wwrite-strings -Wmultichar
+
 echo "Linking Kernel and Bootloader"
-i386-elf-gcc -T linker.ld -o JOS.bin -ffreestanding -O2 -nostdlib\
+i386-elf-g++ -T linker.ld -o JOS.bin -ffreestanding -O2 -nostdlib\
        	boot.o kernel/keyboard.o kernel/common.o kernel/shell.o kernel/kernel.o kernel/vga.o\
 	kernel/ata.o kernel/fat.o kernel/heap.o kernel/files.o -lgcc
 echo "cleaning up"

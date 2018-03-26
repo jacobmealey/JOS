@@ -29,7 +29,7 @@ void commandCheck(char * command)
 		clear_screen(normal);
 	}
 	if(stringCompare(command, "mkfile")){
-		makeFile("file.txt\n");
+		//makeFile("file.txt\n");
 	}
 	if(stringCompare(command, "list")){
 		if(exists(currentFile)){

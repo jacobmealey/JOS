@@ -12,7 +12,8 @@
 #include "common.h"
 #include "ata.h"
 #include "fat.h"
-#include "files.h"
+//`#include "files.h"
+
 
 void shInit();
 void prompt();
