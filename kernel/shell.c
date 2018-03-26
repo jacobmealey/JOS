@@ -30,6 +30,7 @@ void commandCheck(char * command)
 	}
 	if(stringCompare(command, "mkfile")){
 		//makeFile("file.txt\n");
+        makefile("file");
 	}
 	if(stringCompare(command, "list")){
 		if(exists(currentFile)){

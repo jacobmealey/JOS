@@ -5,11 +5,16 @@
 extern "C"{
   #include "files.h"
   #include "common.h"
+
+  int makefile(char* file_name){
+    files file;
+    return file.makeFile(file_name);
+  }
 }
 
 
 
-int makeFile(char* file_name)
+int files::makeFile(char* file_name)
 {
 	printf("Making file: ", normal);
 	printf(file_name, normal);

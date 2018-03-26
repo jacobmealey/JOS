@@ -9,6 +9,7 @@
 #include <stdbool.h> /* C doesn't have booleans by default. */
 #endif
 
+
 #include <stddef.h>
 #include <stdbool.h> /* C doesn't have booleans by default. */
 
@@ -20,6 +21,9 @@
 #include "fat.h"
 #include "vga.h"
 
-int makeFile(char* file_name);
+class files {
+  public:
+    int makeFile(char* file_name);
+};
 
 #endif

@@ -17,9 +17,9 @@ i386-elf-gcc -c kernel/ata.c -o kernel/ata.o -std=gnu99 -ffreestanding -O2 -Wall
 echo "compiling fat"
 i386-elf-gcc -c kernel/fat.c -o kernel/fat.o -std=gnu99 -ffreestanding -O2 -Wall -Wextra
 echo "compiling heap"
-i386-elf-gcc -c kernel/heap.c -o kernel/heap.o -std=gnu99 -ffreestanding -O2 -Wall -Wextra
+i386-elf-gcc -c kernel/heap.c -o kernel/heap.o -std=gnu99 -ffreestanding -O2 -Wall -Wextra 
 echo "compiling files"
-i386-elf-g++ -c kernel/files.cpp -o kernel/files.o -static-libstdc++  -ffreestanding -O2 -Wall -Wextra -Wwrite-strings -Wmultichar
+i386-elf-g++ -c kernel/files.cpp -o kernel/files.o -static-libstdc++  -ffreestanding -O2 -Wall -Wextra -Wwrite-strings
 
 echo "Linking Kernel and Bootloader"
 i386-elf-g++ -T linker.ld -o JOS.bin -ffreestanding -O2 -nostdlib\
