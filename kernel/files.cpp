@@ -2,12 +2,14 @@
 // File handling API for JOS
 // Author: Jacob Mealey
 
-extern "C"{
+extern "C"
+{
   #include "files.h"
   #include "common.h"
 
   files file;
-  int makefile(char* file_name){
+  int makefile(char* file_name)
+  {
     return file.makeFile(file_name);
   }
 }
