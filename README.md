@@ -10,11 +10,9 @@ building an Operating System.
 #### Todo:
   - ~~be able to list the contents of a file~~
   - be able to create and delete files 
-  - build a unix-like file structure (/bin , /usr, /home etc)
-  - start building userspace applications
-     - improved shell
-     - text editor
-     - compiler (?)
+  - finish files API
+  - build scripting language 
+    - text parser (This can be used in other parts as well)
   - OPTIMIZE 
 
 JOS is written completely in C (and a bit of assembly) at the moment but, I am looking to implement other languages into the code base where I see fit. It would be nice to have rust compatibility, C++ is already 'implemented' - that is if you have the whole i386-elf cross compiler collection - I just haven't found a use for it yet. 
