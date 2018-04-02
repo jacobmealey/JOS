@@ -20,7 +20,7 @@ int files::makeFile(char* file_name)
 {
 	printf("Making file: ", normal);
 	printf(file_name, normal);
-    printf("\n", normal);
+    	printf("\n", normal);
 	printf("(Not really ATM)\n", normal);
 	return 1;
 }
