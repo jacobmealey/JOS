@@ -106,5 +106,6 @@ void handleKeys()
 		// Pushing to shell so the characters can be 
 		// handled by a more complex system then the VGA driver
 	       	shWrite(keyboard_bus[key]);
+		addToBuff(keyboard_bus[key]);
 	}
 }

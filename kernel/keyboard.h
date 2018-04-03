@@ -7,6 +7,7 @@
 
 #include "vga.h"
 #include "shell.h"
+#include "parse.h"
 #include "common.h"
 
 #if !defined(__cplusplus)

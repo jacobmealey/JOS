@@ -12,6 +12,7 @@
 #include "common.h"
 #include "ata.h"
 #include "fat.h"
+#include "parse.h"
 
 
 void shInit();

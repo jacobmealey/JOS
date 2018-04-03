@@ -12,10 +12,10 @@
 #include <stdint.h>
 
 #include "vga.h"
-#include "heap.h"
-
-
 #include "common.h"
 
-void add_to_buff(char character);
+char * text_buffer;
 
+void addToBuff(char character);
+void pushToArray(char* buffer);
+void printTextBuff();
