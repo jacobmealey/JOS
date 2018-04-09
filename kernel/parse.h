@@ -19,3 +19,5 @@ char * text_buffer;
 void addToBuff(char character);
 void pushToArray(char* buffer);
 void printTextBuff();
+void clearBuff();
+void clearLineBuff();
