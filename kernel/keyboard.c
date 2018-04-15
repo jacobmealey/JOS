@@ -89,7 +89,7 @@ void handleKeys()
 	unsigned char key = getScancode();
 		
 	// If shift is pressed
-	if (key == 0x2A){			
+	if (key == 0x2A || key == 0x36){			
 		while(1){
 			unsigned char key_shift = getScancode();
 			// If shift is released
