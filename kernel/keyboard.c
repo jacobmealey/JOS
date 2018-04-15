@@ -93,7 +93,7 @@ void handleKeys()
 		while(1){
 			unsigned char key_shift = getScancode();
 			// If shift is released
-			if(key_shift == 0xAA)
+			if(key_shift == 0xAA || key_shift ==  0xB6)
 				return;
 			// if any key is released do nothing
 			else if (key_shift >= 0x81)
