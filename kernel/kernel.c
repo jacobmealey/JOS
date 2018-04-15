@@ -51,7 +51,7 @@ void kernel_main(void)
 		printInt(currentfat32part.root_dir_sect, normal);
 		printf("\n", normal);
 
-		printf("next cluster: ", normal);
+		printf("next cluster: ", green);
 		printInt(getNextCluster(0), normal);
 		println("");
 		//initialization of the terminal/shell
