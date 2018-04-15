@@ -8,6 +8,7 @@
 	- Edit Files
 - Text Parser
 - Scripting Language
+- Stronger style enforcement
 
 
 ### Text Parser

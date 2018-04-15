@@ -25,17 +25,15 @@ void prompt()
 
 void commandCheck(char * command)
 {
-	if(stringCompare(command, "clear")){
+	if(stringCompare(command, "clear"))
 		clear_screen(normal);
-	}
 	if(stringCompare(command, "mkfile")){
 		//makeFile("file.txt\n");
 	        makefile("file");
 	}
 	if(stringCompare(command, "list")){
-		if(exists(currentFile)){
+		if(exists(currentFile))
 			printf("File Does Exist",normal);
-		}
 		println("");
 		printFileContents(currentFile);
 		println("");
@@ -57,7 +55,6 @@ void shWrite(char data)
 			removeChar(command_buffer, command_buffer);
 			return;
 		}
-
 		concatChar(command_buffer, data, command_buffer);
 	}
 }

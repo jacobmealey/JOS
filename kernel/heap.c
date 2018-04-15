@@ -5,13 +5,15 @@ uint8_t frames[0x2000];       //16byte Frames, 1 bit each. 1 = used, 0 = free
 Frame frbuf;
 FrameSet frsbuf;
 
-void init_heap(){
+void init_heap()
+{
 	for(int i = 0; i < 0x2000; i++){
 		frames[i] = 0;
 	}
 }
 
-Frame first_available_frame(){
+Frame first_available_frame()
+{
 	for(int i = 0; i < 0x2000; i++){
 		for(int j = 0; j < 8; j++){
 			if(!(frames[i] >> j & 1)){
@@ -25,7 +27,8 @@ Frame first_available_frame(){
 	return frbuf;
 }
 
-FrameSet first_available_frameset(uint32_t len){ //len is the amount of 16byte frames, not bytes.
+FrameSet first_available_frameset(uint32_t len)//len is the amount of 16byte frames, not bytes.
+{ 
 	uint32_t numFrames = 0;
 	for(int i = 0; i < 0x2000; i++){
 		for(int j = 0; j < 8; j++){
@@ -51,7 +54,8 @@ FrameSet first_available_frameset(uint32_t len){ //len is the amount of 16byte f
 	while(true);
 }
 
-FrameSet fsalloc(uint32_t len){
+FrameSet fsalloc(uint32_t len)
+{
 	first_available_frameset(len);
 	Frame buf;
 	for(unsigned int i = 0; i < frsbuf.len; i++){
@@ -64,7 +68,8 @@ FrameSet fsalloc(uint32_t len){
 	return fs;
 }
 
-Frame getFrame(uint32_t i){
+Frame getFrame(uint32_t i)
+{
 	Frame f;
 	f.set = i/8;
 	f.pos = i%8;
@@ -72,7 +77,8 @@ Frame getFrame(uint32_t i){
 	return f;
 }
 
-Frame falloc(){
+Frame falloc()
+{
 	first_available_frame();
 	frames[frbuf.set] = frames[frbuf.set] | (1 << frbuf.pos);
 	Frame f;
@@ -82,18 +88,21 @@ Frame falloc(){
 	return f;
 }
 
-void ffree(Frame f){
+void ffree(Frame f)
+{
 	frames[f.set] &= ~(1 << f.pos);
 }
 
-void *kmalloc(uint32_t len){
+void *kmalloc(uint32_t len)
+{
 	frsbuf = fsalloc(len/0x10+1);
 	return &heap_space[frsbuf.start.num*0x10];
 }
 
 uint32_t kfreebuf;
 
-void kfree(void *ptr, uint32_t len){
+void kfree(void *ptr, uint32_t len)
+{
 	kfreebuf = (uint32_t)ptr-(uint32_t)&heap_space;
 	kfreebuf/=0x10;
 	for(unsigned int i = 0; i < len/0x10+1; i++){
@@ -102,12 +111,14 @@ void kfree(void *ptr, uint32_t len){
 	}
 }
 
-char *String(char *str){
+char *String(char *str)
+{
 	char* str1 = kmalloc(stringLength(str)+1);
 	strcpy(str,str1);
 	return str1;
 }
 
-void strfree(char *str){
+void strfree(char *str)
+{
 	kfree(str, stringLength(str)+1);
 }

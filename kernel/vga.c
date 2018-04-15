@@ -12,7 +12,8 @@ uint8_t cursor_y = 0;
 char *vidmem = (char *)0xb8000;
 
 
-void clear_screen(uint8_t color){
+void clear_screen(uint8_t color)
+{
    int i;
    for(i = 0; i < 80*25*2; i++){
 	   vidmem[i++] = ' ';
@@ -32,21 +33,22 @@ void move_cursor()
    outb(0x3D5, cursorLocation);      // Send the low cursor byte.
 }
 
-void putchar(char c, uint8_t color){
+void putchar(char c, uint8_t color)
+{
 	uint16_t location;
 	if(c == 0x08 && cursor_x){
 		cursor_x--;
 		location = (cursor_y * 80 + cursor_x)*2;
 		vidmem[location] = ' ';
 		vidmem[location+1] = 0x0F;
-	}else if(c == 0x09){
+	}else if(c == 0x09)
 		cursor_x = (cursor_x+8) & ~(8-1);
-	}else if(c == '\n'){
+	else if(c == '\n'){
 		cursor_x = 0;
 		cursor_y++;
-	}else if(c == '\b'){
+	}else if(c == '\b')
 		cursor_x--;
-	}else if(c >= ' '){
+	else if(c >= ' '){
 		location = (cursor_y * 80 + cursor_x)*2;
 		vidmem[location] = c;
 		vidmem[location + 1] = color;
@@ -61,14 +63,15 @@ void putchar(char c, uint8_t color){
 	move_cursor();
 }
 
-void printf(char *c, uint8_t color){
+void printf(char *c, uint8_t color)
+{
 	int i = 0;
-	while(c[i]){
+	while(c[i])
 		putchar(c[i++], color);
-	}
 }
 
-void printInt(int n, uint8_t color){
+void printInt(int n, uint8_t color)
+{
 	if(n == 0){
 		printf("0",color);
 		return;
@@ -101,7 +104,8 @@ void printInt(int n, uint8_t color){
 	printf(buffer, color);
 }
 
-void scroll(uint8_t color){
+void scroll(uint8_t color)
+{
    if(cursor_y >= 25){
        	int i = 80*2;
 		while(i < 80*25*2){
@@ -118,14 +122,17 @@ void scroll(uint8_t color){
 }
 
 
-int getY(){
+int getY()
+{
 	return cursor_y;
 }
 
-int getX(){
+int getX()
+{
 	return cursor_x;
 }
 
-int getPos(){
+int getPos()
+{
 	return ((cursor_y*80)+cursor_x)*2;
 }

@@ -27,9 +27,8 @@ void readSector(int disk, int address, uint8_t *sect){
 }
 
 void readSectors(int disk, int address, int sectors, uint8_t *sect){
-	for(int i = 0; i < sectors; i++){
+	for(int i = 0; i < sectors; i++)
 		readSector(disk,address+i,sect+i*512);
-	}
 }
 
 int getFirstPartition(int disk){
@@ -37,9 +36,8 @@ int getFirstPartition(int disk){
 	uint16_t pos = 0;
 	for(int i = 0; i < 256; i++){
 		uint16_t tmpword = inw(0x1F0);
-		if(i == 227){
+		if(i == 227)
 			pos = tmpword;
-		}
 	}
 	return pos;
 }
