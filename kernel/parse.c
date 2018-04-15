@@ -14,6 +14,7 @@ void addToBuff(char character)
 		pushToArray(text_buffer);
 		clearBuff();
 	} else if (character == '\n'){
+		pushToArray(text_buffer);
 		printTextBuff();
 		clearLineBuff();
 	} else {
@@ -27,15 +28,19 @@ void addToBuff(char character)
 
 void pushToArray(char* buffer)
 {
-	printf("pushing to array\n", red);
 	for (int i = 0; i < 20; i++)
 		buff_array[buff_array_len][i] = buffer[i];
 	buff_array_len++;
 }
 void printTextBuff()
 {
-	for(int i = 0; i < 20; i++)
+	println("");
+	for(int i = 0; i < 20; i++){
+		printInt(i, normal);
+		printf(". ", normal);
 		printf(buff_array[i], normal);
+		printf("\n", normal);
+	}
 }
 
 void clearBuff()
