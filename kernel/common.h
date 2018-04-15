@@ -35,6 +35,22 @@
 #define light_red 0x0C
 #define light_purple 0x0D
 #define yellow 0x0E
+#define normal_highlight 0xF0
+#define blue_highlight 0xF1
+#define green_highlight 0xF2
+#define cyan_highlight 0xF3
+#define red_highlight 0xF4
+#define purple_highlight 0xF5
+#define orange_highlight 0xF6
+#define light_grey_highlight 0xF7
+#define dark_grey_highlight 0xF8
+#define light_blue_hightlight 0xF9
+#define light_green_highlight 0xFA
+#define light_cyan_highlight 0xFB
+#define light_red_highlight 0xFC
+#define light_purple_highlight 0xFD
+#define yellow_highlight 0xFE
+
 
 uint8_t inb(uint16_t port);
 uint16_t inw(uint16_t port);
