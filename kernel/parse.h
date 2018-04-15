@@ -14,7 +14,7 @@
 #include "vga.h"
 #include "common.h"
 
-char * text_buffer;
+char *text_buffer;
 
 void addToBuff(char character);
 void pushToArray(char* buffer);

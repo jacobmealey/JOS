@@ -4,8 +4,8 @@
 
 #include "parse.h"
 
-char * text_buffer;
-char * buff_array[25]; // This shouldn't work but does. LOL
+char *text_buffer;
+char buff_array[20][20]; // This shouldn't work but does. LOL
 int buff_array_len = 0;
 
 void addToBuff(char character)
@@ -28,14 +28,14 @@ void addToBuff(char character)
 void pushToArray(char* buffer)
 {
 	printf("pushing to array\n", red);
-	buff_array[buff_array_len] = ":D";
+	for (int i = 0; i < 20; i++)
+		buff_array[buff_array_len][i] = buffer[i];
 	buff_array_len++;
 }
-
 void printTextBuff()
 {
-	for(int i = 0; i < 25; i++)
-		printf(buff_array[i], green);
+	for(int i = 0; i < 20; i++)
+		printf(buff_array[i], normal);
 }
 
 void clearBuff()
@@ -46,7 +46,7 @@ void clearBuff()
 
 void clearLineBuff()
 {
-	for(int i = 0; i < 25; i++)
+	for(int i = 0; i < 20; i++)
 	{
 		for(int j = 0; j < 50; j++)
 			removeChar(buff_array[i], buff_array[i]);

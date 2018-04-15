@@ -148,8 +148,10 @@ void substrr(int s, int e, char* source, char* destination)
 void strcpy(char* string_one, char* string_two)
 {
 	int i = 0;
-	while(string_one[i] != '\0')
+	while(string_one[i] != '\0'){
 		string_two[i] = string_one[i];
+		i++;
+	}
 }
 
 void * memcpy(void * dest, const void * src, size_t count)
