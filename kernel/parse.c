@@ -6,7 +6,7 @@
 
 char *text_buffer;
 char buff_array[20][20]; // This shouldn't work but does. LOL
-int buff_array_len = 0;
+int buff_array_pos = 0;
 
 void addToBuff(char character)
 {
@@ -17,6 +17,7 @@ void addToBuff(char character)
 		pushToArray(text_buffer);
 		printTextBuff();
 		clearLineBuff();
+		buff_array_pos = 0;
 	} else {
 		if(character== '\b'){
 			removeChar(text_buffer, text_buffer);
@@ -29,8 +30,8 @@ void addToBuff(char character)
 void pushToArray(char* buffer)
 {
 	for (int i = 0; i < 20; i++)
-		buff_array[buff_array_len][i] = buffer[i];
-	buff_array_len++;
+		buff_array[buff_array_pos][i] = buffer[i];
+	buff_array_pos++;
 }
 void printTextBuff()
 {
