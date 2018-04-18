@@ -8,15 +8,15 @@ char *text_buffer;
 char buff_array[20][20]; // This shouldn't work but does. LOL
 int buff_array_pos = 0;
 
-void addToBuff(char character)
+void addToBuff(char buff[20][20], char character)
 {
 	if(character == ' '){
-		pushToArray(text_buffer);
-		clearBuff();
+		pushToArray(buff, text_buffer);
+		clearBuff(buff);
 	} else if (character == '\n'){
-		pushToArray(text_buffer);
-		printTextBuff();
-		clearLineBuff();
+		pushToArray(buff, text_buffer);
+		printTextBuff(buff);
+		clearLineBuff(buff);
 		buff_array_pos = 0;
 	} else {
 		if(character== '\b'){
@@ -27,13 +27,13 @@ void addToBuff(char character)
 	}
 }
 
-void pushToArray(char* buffer)
+void pushToArray(char buff[20][20], char* buffer)
 {
 	for (int i = 0; i < 20; i++)
 		buff_array[buff_array_pos][i] = buffer[i];
 	buff_array_pos++;
 }
-void printTextBuff()
+void printTextBuff(char buff[20][20])
 {
 	println("");
 	for(int i = 0; i < 20; i++){
@@ -44,14 +44,15 @@ void printTextBuff()
 	}
 }
 
-void clearBuff()
+void clearBuff(char buff[20][20])
 {
 	for(int i = 0; i <= 100 ; i++)
 		removeChar(text_buffer, text_buffer);
 }
 
-void clearLineBuff()
+void clearLineBuff(char buff[20][20])
 {
+	clearBuff(buff);
 	for(int i = 0; i < 20; i++)
 	{
 		for(int j = 0; j < 50; j++)

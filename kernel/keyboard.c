@@ -3,6 +3,7 @@
 // Author: Jacob Mealey
 
 #include "keyboard.h"
+char shell_buffer[20][20];
 static char keyboard_bus[256] = {
     0,  27, '1', '2', '3', '4', '5', '6', '7', '8',	/* 9 */
   '9', '0', '-', '=', '\b',	/* Backspace */
@@ -106,6 +107,6 @@ void handleKeys()
 		// Pushing to shell so the characters can be 
 		// handled by a more complex system then the VGA driver
 	       	shWrite(keyboard_bus[key]);
-		addToBuff(keyboard_bus[key]);
+		addToBuff(shell_buffer, keyboard_bus[key]);
 	}
 }

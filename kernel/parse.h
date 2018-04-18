@@ -16,8 +16,8 @@
 
 char *text_buffer;
 
-void addToBuff(char character);
-void pushToArray(char* buffer);
-void printTextBuff();
-void clearBuff();
-void clearLineBuff();
+void addToBuff(char buff[20][20], char character);
+void pushToArray(char buff[20][20], char* buffer);
+void printTextBuff(char buff[20][20]);
+void clearBuff(char buff[20][20]);
+void clearLineBuff(char buff[20][20]);
