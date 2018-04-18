@@ -18,6 +18,6 @@
 void shInit();
 void prompt();
 void clearBuffer();
-void commandCheck(char * command);
+void commandCheck(char command[20][20]);
 void shWrite(char data);
 #endif

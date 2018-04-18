@@ -4,12 +4,7 @@
 
 #include "shell.h"
 
-char *command_buffer = "\0";
-
-void clearBuffer()
-{
-		command_buffer = command_buffer - stringLength(command_buffer);
-}
+char command_buffer[20][20];
 
 void shInit()
 {
@@ -23,15 +18,15 @@ void prompt()
 
 
 
-void commandCheck(char * command)
+void commandCheck(char command[20][20])
 {
-	if(stringCompare(command, "clear"))
+	if(stringCompare(command[0], "clear"))
 		clear_screen(normal);
-	if(stringCompare(command, "mkfile")){
+	if(stringCompare(command[0], "mkfile")){
 		//makeFile("file.txt\n");
 	        makefile("file");
 	}
-	if(stringCompare(command, "list")){
+	if(stringCompare(command[0], "list")){
 		if(exists(currentFile))
 			printf("File Does Exist",normal);
 		println("");
@@ -42,20 +37,13 @@ void commandCheck(char * command)
 
 void shWrite(char data)
 {
+	addToBuff(command_buffer, data);
 	putchar(data, normal);
 	if(data == '\n' )
 	{
 		commandCheck(command_buffer);
-		clearBuffer();
+		clearBuff(command_buffer);
 		putchar('>', normal);
-	}
-	else
-	{
-		if(data == '\b'){
-			removeChar(command_buffer, command_buffer);
-			return;
-		}
-		concatChar(command_buffer, data, command_buffer);
 	}
 }
 
