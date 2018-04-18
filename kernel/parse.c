@@ -4,10 +4,9 @@
 
 #include "parse.h"
 
-char *text_buffer;
-char buff_array[20][20]; // This shouldn't work but does. LOL
 int buff_array_pos = 0;
 
+<<<<<<< HEAD
 void addToBuff(char buff[20][20], char character)
 {
 	if(character == ' '){
@@ -20,17 +19,17 @@ void addToBuff(char buff[20][20], char character)
 		buff_array_pos = 0;
 	} else {
 		if(character== '\b'){
-			removeChar(text_buffer, text_buffer);
+			removeChar(buff.text_buffer, buff.text_buffer);
 			return;
 		}
-		concatChar(text_buffer, character, text_buffer);
+		concatChar(buff.text_buffer, character, buff.text_buffer);
 	}
 }
 
 void pushToArray(char buff[20][20], char* buffer)
 {
 	for (int i = 0; i < 20; i++)
-		buff_array[buff_array_pos][i] = buffer[i];
+		buff[buff_array_pos][i] = buffer[i];
 	buff_array_pos++;
 }
 void printTextBuff(char buff[20][20])
@@ -39,7 +38,7 @@ void printTextBuff(char buff[20][20])
 	for(int i = 0; i < 20; i++){
 		printInt(i, normal);
 		printf(". ", normal);
-		printf(buff_array[i], normal);
+		printf(buff.buff_array[i], normal);
 		printf("\n", normal);
 	}
 }
@@ -47,7 +46,7 @@ void printTextBuff(char buff[20][20])
 void clearBuff(char buff[20][20])
 {
 	for(int i = 0; i <= 100 ; i++)
-		removeChar(text_buffer, text_buffer);
+		removeChar(buff.text_buffer, buff.text_buffer);
 }
 
 void clearLineBuff(char buff[20][20])
@@ -56,6 +55,6 @@ void clearLineBuff(char buff[20][20])
 	for(int i = 0; i < 20; i++)
 	{
 		for(int j = 0; j < 50; j++)
-			removeChar(buff_array[i], buff_array[i]);
+			removeChar(buff.buff_array[i], buff.buff_array[i]);
 	}
 }

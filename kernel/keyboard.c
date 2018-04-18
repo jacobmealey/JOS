@@ -4,6 +4,7 @@
 
 #include "keyboard.h"
 char shell_buffer[20][20];
+
 static char keyboard_bus[256] = {
     0,  27, '1', '2', '3', '4', '5', '6', '7', '8',	/* 9 */
   '9', '0', '-', '=', '\b',	/* Backspace */
