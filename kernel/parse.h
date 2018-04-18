@@ -1,3 +1,5 @@
+#ifndef PARSE_C
+#define PARSE_C
 // text parser for JOS 
 // --- Jacob Mealey --- 
 
@@ -14,10 +16,16 @@
 #include "vga.h"
 #include "common.h"
 
-char *text_buffer;
 
-void addToBuff(char character);
-void pushToArray(char* buffer);
-void printTextBuff();
-void clearBuff();
-void clearLineBuff();
+typedef struct parse 
+{
+	char *text_buffer;
+	char buff_array[20][20];
+} Parse;
+
+void addToBuff(Parse buff, char character);
+void pushToArray(char buff[20][20], char* buffer);
+void printTextBuff(Parse buff);
+void clearBuff(Parse buff);
+void clearLineBuff(Parse buff);
+#endif
