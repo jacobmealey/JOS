@@ -14,8 +14,8 @@
 ### Text Parser
 
 -  ~~Basic File parsing~~
-- Bug where first character is always 'S' 
-- Implementing with structs
+- ~~Bug where first character is always 'S' ~~
+
 
 ### Implentation of the text parser
 
