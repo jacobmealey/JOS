@@ -9,13 +9,13 @@ char command_buffer[20][20];
 void shInit()
 {
 	printf("JOS v0.0.1\n", normal);
+	clearLineBuff(command_buffer);
 }
 
 void prompt()
 {
 	putchar('>', normal);
 }
-
 
 
 void commandCheck(char command[20][20])
@@ -44,7 +44,7 @@ void shWrite(char data)
 	{
 		commandCheck(command_buffer);
 		clearLineBuff(command_buffer);
-		putchar('>', normal);
+		prompt();
 	}
 }
 

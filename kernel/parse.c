@@ -25,9 +25,11 @@ void addToBuff(char buff[20][20], char character)
 	}
 }
 
+// The first time you wrte to the buffer the first char will be
+// S because of the null data
 void pushToArray(char buff[20][20], char* buffer)
 {
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < 20; ++i) 
 		buff[buff_array_pos][i] = buffer[i];
 	buff_array_pos++;
 }
