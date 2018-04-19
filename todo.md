@@ -11,10 +11,8 @@
 - Stronger style enforcement
 
 
-### Text Parser
-
--  ~~Basic File parsing~~
-- ~~Bug where first character is always 'S' ~~
+## Text Parsing
+- Nothing to do :)
 
 
 ### Implentation of the text parser
