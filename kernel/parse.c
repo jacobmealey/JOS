@@ -9,26 +9,27 @@ char * text_buffer;
 
 void addToBuff(char buff[20][20], char character)
 {
-	if(character == ' '){
+	if(character== '\b'){
+		removeChar(text_buffer, text_buffer);
+		return;
+	}
+	else if(character == ' '){
 		pushToArray(buff, text_buffer);
 		clearBuff(buff);
 	} else if (character == '\n'){
 		pushToArray(buff, text_buffer);
-		printTextBuff(buff);
-		clearLineBuff(buff);
+		clearBuff(buff);
 		buff_array_pos = 0;
 	} else {
-		if(character== '\b'){
-			removeChar(text_buffer, text_buffer);
-			return;
-		}
 		concatChar(text_buffer, character, text_buffer);
 	}
 }
 
+// The first time you wrte to the buffer the first char will be
+// S because of the null data
 void pushToArray(char buff[20][20], char* buffer)
 {
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < 20; ++i) 
 		buff[buff_array_pos][i] = buffer[i];
 	buff_array_pos++;
 }
@@ -43,7 +44,7 @@ void printTextBuff(char buff[20][20])
 	}
 }
 
-void clearBuff(char buff[20][20])
+void clearBuff()
 {
 	for(int i = 0; i <= 100 ; i++)
 		removeChar(text_buffer, text_buffer);
