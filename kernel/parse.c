@@ -9,19 +9,18 @@ char * text_buffer;
 
 void addToBuff(char buff[20][20], char character)
 {
-	if(character == ' '){
+	if(character== '\b'){
+		removeChar(text_buffer, text_buffer);
+		return;
+	}
+	else if(character == ' '){
 		pushToArray(buff, text_buffer);
 		clearBuff(buff);
 	} else if (character == '\n'){
 		pushToArray(buff, text_buffer);
-		printTextBuff(buff);
-		clearLineBuff(buff);
+		clearBuff(buff);
 		buff_array_pos = 0;
 	} else {
-		if(character== '\b'){
-			removeChar(text_buffer, text_buffer);
-			return;
-		}
 		concatChar(text_buffer, character, text_buffer);
 	}
 }
@@ -43,7 +42,7 @@ void printTextBuff(char buff[20][20])
 	}
 }
 
-void clearBuff(char buff[20][20])
+void clearBuff()
 {
 	for(int i = 0; i <= 100 ; i++)
 		removeChar(text_buffer, text_buffer);

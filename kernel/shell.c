@@ -25,6 +25,7 @@ void commandCheck(char command[20][20])
 	if(stringCompare(command[0], "mkfile")){
 		//makeFile("file.txt\n");
 	        makefile("file");
+		printf(command[1], normal);
 	}
 	if(stringCompare(command[0], "list")){
 		if(exists(currentFile))
@@ -42,7 +43,7 @@ void shWrite(char data)
 	if(data == '\n' )
 	{
 		commandCheck(command_buffer);
-		clearBuff(command_buffer);
+		clearLineBuff(command_buffer);
 		putchar('>', normal);
 	}
 }
