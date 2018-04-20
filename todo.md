@@ -1,4 +1,4 @@
-## To Do
+# To Do
 
 ### Big Picture
 
@@ -21,3 +21,11 @@
 - Use the new parser to create a prototype scripting language.
 - A potential text parsing api specifically for files.
 
+## keyboard
+- Arrow Keys
+- Caps Lock
+
+## Shell
+- Shutdown & Restart commands
+- A better way to do functions 
+	- perhaps have each function in a different folder?
