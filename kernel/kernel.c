@@ -32,30 +32,12 @@ extern "C" /* Use C linkage for kernel_main. */
 void kernel_main(void) 
 {
 
-		clear_screen(normal);
-		shInit();
-		setupDisk();
-		currentFile = getFile("TEXT.TXT");
-		//pretty simple, just detecting if the drive is fat32 
-		if(currentfat32part.is_fat){
-			printf("FAT32 disk in\n", green);
-		}else{
-			printf("No fat32 disk detected!\n", red);
-		}
+	clear_screen(normal);
+	shInit();
+	setupDisk();
+	fatInfo();
+	prompt();
 
-		printf("sectors per fat: ", green);
-		printInt(currentfat32part.sectors_per_fat, normal);
-		printf("\n", normal);
-
-		printf("Root Dir at: ", green);
-		printInt(currentfat32part.root_dir_sect, normal);
-		printf("\n", normal);
-
-		printf("next cluster: ", green);
-		printInt(getNextCluster(0), normal);
-		println("");
-		prompt();
-
-		while(true)
-			handleKeys();
+	while(true)
+	handleKeys();
 }

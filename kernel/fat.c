@@ -465,3 +465,25 @@ uint32_t clusterToLBAOther(fat32part p, uint32_t cluster)
 {
 	return p.cluster_begin_sect+(p.sectors_per_cluster * (cluster-2));
 }
+
+void fatInfo()
+{
+	currentFile = getFile("TEXT.TXT");
+	//pretty simple, just detecting if the drive is fat32 
+	if(currentfat32part.is_fat){
+		printf("FAT32 disk in\n", green);
+	}else{
+		printf("No fat32 disk detected!\n", red);
+	}
+
+	printf("sectors per fat: ", green);
+	printInt(currentfat32part.sectors_per_fat, normal);
+	printf("\n", normal);
+
+	printf("Root Dir at: ", green);
+	printInt(currentfat32part.root_dir_sect, normal);
+	printf("\n", normal);
+	printf("next cluster: ", green);
+	printInt(getNextCluster(0), normal);
+	println("");
+}
