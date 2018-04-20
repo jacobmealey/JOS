@@ -54,8 +54,8 @@ void kernel_main(void)
 		printf("next cluster: ", green);
 		printInt(getNextCluster(0), normal);
 		println("");
-		//initialization of the terminal/shell
 		prompt();
+
 		while(true)
 			handleKeys();
 }

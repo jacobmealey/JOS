@@ -136,3 +136,10 @@ int getPos()
 {
 	return ((cursor_y*80)+cursor_x)*2;
 }
+
+void setPos(int x, int y)
+{
+	cursor_x = x;
+	cursor_y = y;
+	move_cursor();
+}

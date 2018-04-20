@@ -33,4 +33,6 @@ int getY();
 
 int getPos();
 
+void setPos(int x, int y);
+
 #endif
