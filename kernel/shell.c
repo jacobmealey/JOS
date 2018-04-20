@@ -34,6 +34,9 @@ void commandCheck(char command[20][20])
 		printFileContents(currentFile);
 		println("");
 	}
+	if(stringCompare(command[0], "fatinfo")){
+		fatInfo();
+	}
 }
 
 void shWrite(char data)

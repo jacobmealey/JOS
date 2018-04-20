@@ -39,5 +39,5 @@ void kernel_main(void)
 	prompt();
 
 	while(true)
-	handleKeys();
+		handleKeys();
 }
