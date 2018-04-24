@@ -23,7 +23,7 @@
 
 ## keyboard
 - Arrow Keys
-- Caps Lock
+- ~~Caps Lock~~
 
 ## Shell
 - Shutdown & Restart commands
