@@ -104,6 +104,17 @@ void handleKeys()
 				shWrite(keyboard_bus[key_shift + 90]);
 		}
 	}
+	if (key == 0x3A){
+		while(1){
+			unsigned char key_capslock = getScancode();
+			if(key_capslock == 0x3A)
+				return;
+			else if (key_capslock >= 0x81)
+				;
+			else
+				shWrite(keyboard_bus[key_capslock + 90]);
+		}
+	}
 	else if(key < 0x54){
 		// Pushing to shell so the characters can be 
 		// handled by a more complex system then the VGA driver
