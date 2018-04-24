@@ -30,4 +30,4 @@ echo "cleaning up"
 rm *.o
 rm kernel/*.o
 echo "running system"
-qemu-system-x86_64 -kernel JOS.bin -drive format=raw,file=disk.img 
+qemu-system-x86_64 -kernel JOS.bin -drive format=raw,file=disk.img -device isa-debug-exit,iobase=0xf4,iosize=0x04
