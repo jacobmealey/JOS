@@ -417,6 +417,7 @@ void printFileContents(fat32file file)
 				printf("contents: \n", normal);
 				for(int i = 0; i < 256; i++){
 					putchar(buf2[i], light_grey);
+					toFileBuff(buf2[i]);
 				}
 			}
 			ccluster = getNextCluster(ccluster);

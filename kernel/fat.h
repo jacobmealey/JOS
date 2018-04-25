@@ -4,6 +4,7 @@
 #include "heap.h"
 #include "common.h"
 #include "ata.h"
+#include "file_parse.h"
 
 typedef struct fat32part{
 	uint8_t disk;

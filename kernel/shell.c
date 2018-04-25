@@ -32,6 +32,7 @@ void commandCheck(char command[20][20])
 			printf("File Does Exist",normal);
 		println("");
 		printFileContents(currentFile);
+		printFile();
 		println("");
 	}
 	if(stringCompare(command[0], "fatinfo")){
