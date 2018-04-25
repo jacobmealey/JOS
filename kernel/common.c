@@ -79,7 +79,6 @@ int stringCompare(char* str1, char* str2)
 void pause()
 {
 	while(inb(0x60) & 0x80);
-
 }
 
 // All of the functions below were to make the PortOS/CodeOS 
@@ -191,4 +190,9 @@ int countOf(char c, char *str)
 			count++;
 	 }
 	 return count;
+}
+
+void powerdown()
+{
+	outb(0xf4, 0x00);
 }

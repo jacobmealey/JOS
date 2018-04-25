@@ -38,7 +38,7 @@ void commandCheck(char command[20][20])
 		fatInfo();
 	}
 	if(stringCompare(command[0], "shutdown")){
-		outb(0xf4, 0x00);
+		powerdown();
 	}
 }
 

@@ -70,4 +70,5 @@ void * memcpy(void * dest, const void * src, size_t count);
 int strcmp(char* str1, char* str2);
 int contains(char * string, char* contained);
 int countOf(char c, char *str);
+void powerdown();
 #endif
