@@ -26,6 +26,6 @@
 - ~~Caps Lock~~
 
 ## Shell
-- Shutdown & Restart commands
+- ~~Shutdown~~ & Restart commands
 - A better way to do functions 
 	- perhaps have each function in a different folder?
