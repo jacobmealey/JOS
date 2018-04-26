@@ -4,6 +4,7 @@
 #include "heap.h"
 #include "common.h"
 #include "ata.h"
+#include "file_parse.h"
 
 typedef struct fat32part{
 	uint8_t disk;
@@ -49,7 +50,7 @@ uint32_t getClusterChainSize(uint32_t cluster);
 uint32_t getFATSectorForCluster(uint32_t cluster);
 uint32_t getNextCluster(uint32_t cluster);
 uint32_t getClusterOfFile(char *file);
-void printFileContents(fat32file f);
+void loadFile(fat32file f);
 void printCurrentDir();
 fat32part getCurrentFat32Part();
 void fatInfo();

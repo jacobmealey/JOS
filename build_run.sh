@@ -22,10 +22,12 @@ echo "compiling files"
 i386-elf-g++ -c kernel/files.cpp -o kernel/files.o -static-libstdc++  -ffreestanding -O2 -Wall -Wextra -Wwrite-strings
 echo "compiling parser"
 i386-elf-gcc -c kernel/parse.c -o kernel/parse.o -std=gnu99 -ffreestanding -O2 -Wall -Wextra  -Wall
+echo "compiling file_parser"
+i386-elf-gcc -c kernel/file_parse.c -o kernel/file_parse.o -std=gnu99 -ffreestanding -O2 -Wall -Wextra  -Wall
 echo "Linking Kernel and Bootloader"
 i386-elf-g++ -T linker.ld -o JOS.bin -ffreestanding -O2 -nostdlib\
        	boot.o kernel/keyboard.o kernel/common.o kernel/shell.o kernel/kernel.o kernel/vga.o\
-	kernel/ata.o kernel/fat.o kernel/heap.o kernel/files.o kernel/parse.o -lgcc
+	kernel/ata.o kernel/fat.o kernel/heap.o kernel/files.o kernel/parse.o kernel/file_parse.o -lgcc
 echo "cleaning up"
 rm *.o
 rm kernel/*.o

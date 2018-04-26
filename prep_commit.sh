@@ -5,3 +5,5 @@ rm kernel/.*.s*
 echo "removing Mac OS garbage"
 rm .DS_Store
 echo "finished"
+
+git status
