@@ -28,9 +28,7 @@ void commandCheck(char command[20][20])
 		printf(command[1], normal);
 	}
 	if(stringCompare(command[0], "list")){
-		if(exists(currentFile))
-			printf("File Does Exist",normal);
-		println("");
+		currentFile = getFile(command[1]);
 		loadFile(currentFile);
 		printFile();
 		println("");
