@@ -402,7 +402,7 @@ uint32_t getNextCluster(uint32_t cluster)
 	return ret;
 }
 
-void printFileContents(fat32file file)
+void loadFile(fat32file file)
 {
 	if(exists(file)){
 		if(isDirectory(file)){
@@ -416,7 +416,6 @@ void printFileContents(fat32file file)
 				readSector(currentfat32part.disk, clusterToLBA(ccluster)+j, buf2);
 				printf("contents: \n", normal);
 				for(int i = 0; i < 256; i++){
-					putchar(buf2[i], light_grey);
 					toFileBuff(buf2[i]);
 				}
 			}

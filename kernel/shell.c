@@ -31,7 +31,7 @@ void commandCheck(char command[20][20])
 		if(exists(currentFile))
 			printf("File Does Exist",normal);
 		println("");
-		printFileContents(currentFile);
+		loadFile(currentFile);
 		printFile();
 		println("");
 	}
