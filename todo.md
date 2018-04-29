@@ -29,3 +29,7 @@
 - ~~Shutdown~~ & Restart commands
 - A better way to do functions 
 	- perhaps have each function in a different folder?
+
+
+## Random Little Things
+- Create a proper makefile
