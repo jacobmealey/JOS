@@ -12,7 +12,7 @@ obj/vga.o : kernel/vga.c
 	i386-elf-gcc -c kernel/vga.c -o obj/vga.o $(C_FLAGS)
 obj/keyboard.o : kernel/keyboard.c
 	i386-elf-gcc -c kernel/keyboard.c -o obj/keyboard.o $(C_FLAGS)
-obj/common.o : keyboard/common.c
+obj/common.o : kernel/common.c
 	i386-elf-gcc -c kernel/common.c -o obj/common.o $(C_FLAGS)
 obj/shell.o : kernel/shell.c
 	i386-elf-gcc -c kernel/shell.c -o obj/shell.o $(C_FLAGS)
@@ -28,6 +28,6 @@ obj/parse.o : kernel/parse.c
 	i386-elf-gcc -c kernel/parse.c -o obj/parse.o $(C_FLAGS)
 obj/file_parse.o : kernel/file_parse.c
 	i386-elf-gcc -c kernel/file_parse.c -o obj/file_parse.o $(C_FLAGS)
-
-
+run:
+	qemu-system-x86_64 -kernel JOS.bin -drive format=raw,file=disk.img -device isa-debug-exit,iobase=0xf4,iosize=0x04
 
