@@ -36,7 +36,7 @@ void printTextBuff(char buff[20][20])
 	println("");
 	for(int i = 0; i < 20; i++){
 		printf(buff[i], normal);
-		printf(" ", normal);
+		//printf(" ", normal);
 
 	}
 }
