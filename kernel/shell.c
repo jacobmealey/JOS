@@ -24,7 +24,6 @@ void commandCheck(char command[20][20])
 		clear_screen(normal);
 	if(stringCompare(command[0], "mkfile")){
 		//makeFile("file.txt\n");
-	        makefile("file");
 		printf(command[1], normal);
 	}
 	if(stringCompare(command[0], "list")){
