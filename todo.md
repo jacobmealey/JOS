@@ -32,4 +32,4 @@
 
 
 ## Random Little Things
-- Create a proper makefile
+- ~~Create a proper makefile~~
