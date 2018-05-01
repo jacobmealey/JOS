@@ -6,8 +6,7 @@ CPP_FLAGS = -static-libstdc++  -ffreestanding -O2 -Wall -Wextra -Wwrite-strings
 
 JOS.bin : $(OBJ)
 	i386-elf-g++ -T linker.ld -o JOS.bin -ffreestanding -O2 -nostdlib\
-		obj/boot.o obj/kernel.o obj/vga.o obj/keyboard.o obj/common.o obj/shell.o \
-		obj/ata.o obj/fat.o obj/heap.o obj/files.o obj/parse.o obj/file_parse.o -lgcc
+		OBJ -lgcc
 obj/boot.o : boot.s
 	i386-elf-as boot.s -o obj/boot.o
 obj/kernel.o : kernel/kernel.c
