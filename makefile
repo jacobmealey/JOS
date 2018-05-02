@@ -29,7 +29,7 @@ obj/parse.o : kernel/parse.c
 	i386-elf-gcc -c kernel/parse.c -o obj/parse.o $(C_FLAGS)
 obj/file_parse.o : kernel/file_parse.c
 	i386-elf-gcc -c kernel/file_parse.c -o obj/file_parse.o $(C_FLAGS)
-run:
+run: JOS.bin
 	qemu-system-x86_64 -kernel JOS.bin -drive format=raw,file=disk.img -device isa-debug-exit,iobase=0xf4,iosize=0x04
-clean:
+clean: 
 	rm obj/*

@@ -7,3 +7,4 @@
 
 void toFileBuff(char character);
 void printFile();
+void pushTofile(char file[20][20][20], char buffer[20][20]);
