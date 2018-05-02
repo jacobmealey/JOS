@@ -33,3 +33,10 @@
 
 ## Random Little Things
 - ~~Create a proper makefile~~
+
+## JOSL 
+- print and read strings
+- variables 
+- Arithmatic & Logic
+- calling other josl files
+
