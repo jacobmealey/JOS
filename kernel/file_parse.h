@@ -1,5 +1,5 @@
 // file-parsing API for JOS 
-// Author: Jacob Mealey
+// --- Jacob Mealey --- 
 #include "common.h"
 #include "fat.h"
 #include "vga.h"

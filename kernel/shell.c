@@ -1,6 +1,6 @@
 // shell.c
 // dumb shell for JOS
-// Author: Jacob Mealey
+// --- Jacob Mealey --- 
 
 #include "shell.h"
 
