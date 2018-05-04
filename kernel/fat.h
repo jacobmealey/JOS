@@ -54,7 +54,7 @@ uint32_t getClusterChainSize(uint32_t cluster);
 uint32_t getFATSectorForCluster(uint32_t cluster);
 uint32_t getNextCluster(uint32_t cluster);
 uint32_t getClusterOfFile(char *file);
-void loadFile(fat32file f);
+void loadFile(fat32file file, char buff[20][20][20]);
 void printCurrentDir();
 fat32part getCurrentFat32Part();
 void fatInfo();

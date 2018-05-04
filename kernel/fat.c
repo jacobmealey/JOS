@@ -406,7 +406,7 @@ uint32_t getNextCluster(uint32_t cluster)
 	return ret;
 }
 
-void loadFile(fat32file file)
+void loadFile(fat32file file, char buff[20][20][20])
 {
 	if(exists(file)){
 		if(isDirectory(file)){
@@ -420,7 +420,7 @@ void loadFile(fat32file file)
 				readSector(currentfat32part.disk, clusterToLBA(ccluster)+j, buf2);
 				printf("contents: \n", normal);
 				for(int i = 0; i < 256; i++){
-					toFileBuff(buf2[i]);
+					toFileBuff(buf2[i], buff);
 				}
 			}
 			ccluster = getNextCluster(ccluster);

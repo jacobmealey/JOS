@@ -5,6 +5,7 @@
 #include "shell.h"
 
 char command_buffer[20][20];
+char file_buff[20][20][20];
 
 void shInit()
 {
@@ -28,8 +29,8 @@ void commandCheck(char command[20][20])
 	}
 	if(stringCompare(command[0], "list")){
 		currentFile = getFile(command[1]);
-		loadFile(currentFile);
-		printFile();
+		loadFile(currentFile, file_buff);
+		printFile(file_buff);
 		println("");
 	}
 	if(stringCompare(command[0], "fatinfo")){

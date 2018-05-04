@@ -3,10 +3,9 @@
 #include "file_parse.h"
 
 char line_buffer[20][20];
-char file_buffer[20][20][20];
 int line = 0;
 
-void toFileBuff(char character)
+void toFileBuff(char character, char file_buffer[20][20][20])
 {
 	addToBuff(line_buffer, character);
 	if(character == '\n'){
@@ -15,7 +14,7 @@ void toFileBuff(char character)
 	}
 }
 
-void printFile()
+void printFile(char file_buffer[20][20][20])
 {
 	for (int i = 0; i < 15; i++){
 		printTextBuff(file_buffer[i]);
