@@ -1,6 +1,6 @@
 // keyboard.h
 // keyboard / ps2 driver for JOS
-// Author Jacob Mealey
+// Author: Jacob Mealey
 
 #ifndef KEYBOARD_H
 #define KEYBOARD_H

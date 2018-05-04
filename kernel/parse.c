@@ -1,5 +1,4 @@
 // Text parsing for JOS 
-// testing code
 // --- Jacob Mealey --- 
 
 #include "parse.h"

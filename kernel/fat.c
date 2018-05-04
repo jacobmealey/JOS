@@ -1,3 +1,7 @@
+// FAT filesystem implementation
+// for JOS original code from
+// CodeOS
+// --- Jacob Mealey --- 
 #include "fat.h"
 
 const char *fat32sig = "FAT32   ";

@@ -1,3 +1,7 @@
+// FAT filesystem implementation
+// for JOS original code from
+// CodeOS
+// --- Jacob Mealey ---#ifndef FAT32_H
 #ifndef FAT32_H
 #define FAT32_H
 

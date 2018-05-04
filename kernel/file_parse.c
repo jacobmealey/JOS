@@ -1,5 +1,5 @@
 // file-parsing API for JOS 
-// Authour: Jacob Mealey
+// --- Jacob Mealey --- 
 #include "file_parse.h"
 
 char line_buffer[20][20];
