@@ -13,6 +13,7 @@
 #include "ata.h"
 #include "fat.h"
 #include "parse.h"
+#include "josl.h"
 
 
 void shInit();

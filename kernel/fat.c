@@ -418,7 +418,6 @@ void loadFile(fat32file file, char buff[20][20][20])
 		while(!done){
 			for(int j = 0; j < currentfat32part.sectors_per_cluster; j++){
 				readSector(currentfat32part.disk, clusterToLBA(ccluster)+j, buf2);
-				printf("contents: \n", normal);
 				for(int i = 0; i < 256; i++){
 					toFileBuff(buf2[i], buff);
 				}

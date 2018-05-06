@@ -1,5 +1,6 @@
 OBJ = obj/boot.o obj/kernel.o obj/vga.o obj/keyboard.o obj/common.o obj/shell.o \
-      obj/ata.o obj/fat.o obj/heap.o obj/files.o obj/parse.o obj/file_parse.o
+      obj/ata.o obj/fat.o obj/heap.o obj/files.o obj/parse.o obj/file_parse.o\
+      obj/josl.o
 
 C_FLAGS = -std=gnu99 -ffreestanding -O2 -Wall -Wextra -Wall
 CPP_FLAGS = -static-libstdc++  -ffreestanding -O2 -Wall -Wextra -Wwrite-strings 
@@ -29,6 +30,8 @@ obj/parse.o : kernel/parse.c
 	i386-elf-gcc -c kernel/parse.c -o obj/parse.o $(C_FLAGS)
 obj/file_parse.o : kernel/file_parse.c
 	i386-elf-gcc -c kernel/file_parse.c -o obj/file_parse.o $(C_FLAGS)
+obj/josl.o : kernel/josl.c
+	i386-elf-gcc -c kernel/josl.c -o obj/josl.o $(C_FLAGS)
 run: JOS.bin
 	qemu-system-x86_64 -kernel JOS.bin -drive format=raw,file=disk.img -device isa-debug-exit,iobase=0xf4,iosize=0x04
 clean: 
