@@ -29,9 +29,9 @@ void prompt()
 
 void commandCheck(char command[20][20])
 {
-	if(stringCompare(command[0], "clear"))
+	if(stringCompare(command[0], "clear")){
 		clear_screen(normal);
-	else if(stringCompare(command[0], "mkfile")){
+	}else if(stringCompare(command[0], "mkfile")){
 		//makeFile("file.txt\n");
 		printf(command[1], normal);
 	}else if(stringCompare(command[0], "list")){
@@ -48,7 +48,7 @@ void commandCheck(char command[20][20])
 		currentFile = getFile(command[1]);
 		josl(currentFile);
 	} else{
-		printf("Uknown Command: ", normal);
+		printf("Unknown Command: ", normal);
 		printf(command[0], red);
 		println("");
 	}
