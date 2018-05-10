@@ -35,4 +35,5 @@ int getPos();
 
 void setPos(int x, int y);
 
+void centerPrint(char * text, uint8_t color);
 #endif

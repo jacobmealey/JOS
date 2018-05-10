@@ -9,7 +9,15 @@ char file_buff[20][20][20];
 
 void shInit()
 {
-	printf("JOS v0.0.1\n", normal);
+	centerPrint("     ___  _______  _______ ", normal);
+    	centerPrint("    |   ||       ||       |", normal);
+   	centerPrint("    |   ||   _   ||  _____|", normal);
+	centerPrint("    |   ||  | |  || |_____ ", normal);
+	centerPrint(" ___|   ||  |_|  ||_____  |", normal);
+	centerPrint("|       ||       | _____| |", normal);
+	centerPrint("|_______||_______||_______|", normal);
+	centerPrint("Press Any Key", normal);
+	pause();
 	clearLineBuff(command_buffer);
 }
 

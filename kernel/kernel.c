@@ -35,7 +35,6 @@ void kernel_main(void)
 	clear_screen(normal);
 	shInit();
 	setupDisk();
-	fatInfo();
 	prompt();
 
 	while(true)
