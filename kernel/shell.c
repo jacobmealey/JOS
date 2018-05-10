@@ -48,7 +48,16 @@ void commandCheck(char command[20][20])
 	}else if(stringCompare(command[0], "josl")){
 		currentFile = getFile(command[1]);
 		josl(currentFile);
-	} else{
+	}else if(stringCompare(command[0], "help")){
+		printf("Commands:\n", normal);
+		printf("\t clear\n", normal);
+		printf("\t mkfile\n", normal);
+		printf("\t list\n", normal);
+		printf("\t fatinfo\n", normal);
+		printf("\t shutdown\n", normal);
+		printf("\t josl\n", normal);
+		printf("\t help (duh)\n", normal);
+	}else{
 		printf("Unknown Command: ", normal);
 		printf(command[0], red);
 		println("");
