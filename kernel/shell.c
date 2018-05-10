@@ -30,28 +30,28 @@ void prompt()
 
 void commandCheck(char command[20][20])
 {
-	if(stringCompare(command[0], "clear"))
+	if(stringCompare(command[0], "clear")){
 		clear_screen(normal);
-	if(stringCompare(command[0], "mkfile")){
+	}else if(stringCompare(command[0], "mkfile")){
 		//makeFile("file.txt\n");
 		printf(command[1], normal);
-	}
-	if(stringCompare(command[0], "list")){
+	}else if(stringCompare(command[0], "list")){
 		println("Contents: ");
 		currentFile = getFile(command[1]);
 		loadFile(currentFile, file_buff);
 		printFile(file_buff);
 		println("");
-	}
-	if(stringCompare(command[0], "fatinfo")){
+	}else if(stringCompare(command[0], "fatinfo")){
 		fatInfo();
-	}
-	if(stringCompare(command[0], "shutdown")){
+	}else if(stringCompare(command[0], "shutdown")){
 		powerdown();
-	}
-	if(stringCompare(command[0], "josl")){
+	}else if(stringCompare(command[0], "josl")){
 		currentFile = getFile(command[1]);
 		josl(currentFile);
+	} else{
+		printf("Unknown Command: ", normal);
+		printf(command[0], red);
+		println("");
 	}
 }
 
