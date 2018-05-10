@@ -16,6 +16,7 @@ void shInit()
 	centerPrint(" ___|   ||  |_|  ||_____  |", normal);
 	centerPrint("|       ||       | _____| |", normal);
 	centerPrint("|_______||_______||_______|", normal);
+	centerPrint("Jacob's Operating System", normal);
 	centerPrint("Press Any Key", normal);
 	pause();
 	clearLineBuff(command_buffer);
