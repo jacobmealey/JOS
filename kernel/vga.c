@@ -143,3 +143,47 @@ void setPos(int x, int y)
 	cursor_y = y;
 	move_cursor();
 }
+
+void centerPrint(char * text, uint8_t color)
+{
+	if(cursor_x > 0){
+		printf("\n",color);
+	}
+	int i = 0;
+	while(text[i]){
+		i++;
+	}
+	if(i > 80){
+		printf(text,color);
+	}else{
+		if(i % 2 == 0){
+			int h = (80-i)/2;
+			int j = 0;
+			while(j < h){
+				putchar(' ', color);
+				j++;
+			}
+			printf(text,color);
+			j = 0;
+			while(j < h){
+				putchar(' ', color);
+				j++;
+			}
+		}else{
+			int h = (80-i)/2;
+			int j = 0;
+			while(j < h){
+				putchar(' ', color);
+				j++;
+			}
+			printf(text,color);
+			j = 0;
+			h--;
+			while(j < h+2){
+				putchar(' ', color);
+				j++;
+			}
+		}
+	}
+
+}
