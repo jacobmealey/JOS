@@ -6,7 +6,7 @@ C_FLAGS = -std=gnu99 -ffreestanding -O2 -Wall -Wextra -Wall
 CPP_FLAGS = -static-libstdc++  -ffreestanding -O2 -Wall -Wextra -Wwrite-strings 
 
 JOS.bin : $(OBJ)
-	i386-elf-g++ -T linker.ld -o JOS.bin -ffreestanding -O2 -nostdlib\
+	i386-elf-gcc -T linker.ld -o JOS.bin -ffreestanding -O2 -nostdlib\
 		$(OBJ) -lgcc
 obj/boot.o : boot.s
 	i386-elf-as boot.s -o obj/boot.o
