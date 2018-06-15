@@ -11,7 +11,7 @@ JOS.bin : $(OBJ)
 obj/boot.o : boot.s
 	i386-elf-as boot.s -o obj/boot.o
 obj/kernel.o : kernel/kernel.c
-	i386-elf-gcc -c kernel/kernel.c -o obj/kernel.o $(C_FLAGS)
+	clang --target=i386-pc-none-elf -march=i386 -c kernel/kernel.c -o obj/kernel.o $(C_FLAGS)
 obj/vga.o : kernel/vga.c
 	i386-elf-gcc -c kernel/vga.c -o obj/vga.o $(C_FLAGS)
 obj/keyboard.o : kernel/keyboard.c
