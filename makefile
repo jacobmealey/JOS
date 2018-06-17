@@ -26,9 +26,9 @@ obj/fat.o : kernel/fat.c
 obj/heap.o : kernel/heap.c
 	clang --target=i386-pc-none-elf -march=i386 -c kernel/heap.c -o obj/heap.o $(C_FLAGS)
 obj/parse.o : kernel/parse.c
-	clang --target=i386-parse-none-elf -march=i386 -c kernel/parse.c -o obj/parse.o $(C_FLAGS)
+	clang --target=i386-pc-none-elf -march=i386 -c kernel/parse.c -o obj/parse.o $(C_FLAGS)
 obj/file_parse.o : kernel/file_parse.c
-	clang --target=i386-parse-none-elf -march=i386 -c kernel/file_parse.c -o obj/file_parse.o $(C_FLAGS)
+	clang --target=i386-pc-none-elf -march=i386 -c kernel/file_parse.c -o obj/file_parse.o $(C_FLAGS)
 obj/josl.o : kernel/josl.c
 	clang --target=i386-parse-none-elf -march=i386 -c kernel/josl.c -o obj/josl.o $(C_FLAGS)
 run: JOS.bin
