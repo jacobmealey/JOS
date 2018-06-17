@@ -30,7 +30,7 @@ obj/parse.o : kernel/parse.c
 obj/file_parse.o : kernel/file_parse.c
 	clang --target=i386-pc-none-elf -march=i386 -c kernel/file_parse.c -o obj/file_parse.o $(C_FLAGS)
 obj/josl.o : kernel/josl.c
-	clang --target=i386-parse-none-elf -march=i386 -c kernel/josl.c -o obj/josl.o $(C_FLAGS)
+	clang --target=i386-pc-none-elf -march=i386 -c kernel/josl.c -o obj/josl.o $(C_FLAGS)
 run: JOS.bin
 	qemu-system-x86_64 -kernel JOS.bin -drive format=raw,file=disk.img -device isa-debug-exit,iobase=0xf4,iosize=0x04
 clean: 
