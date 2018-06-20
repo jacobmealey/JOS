@@ -104,6 +104,7 @@ void handleKeys()
 				shWrite(keyboard_bus[key_shift + 90]);
 		}
 	}
+	//if capslock is pressed
 	if (key == 0x3A){
 		while(1){
 			unsigned char key_capslock = getScancode();
