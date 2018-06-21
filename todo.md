@@ -9,6 +9,7 @@
 - ~~Text Parser~~
 - Scripting Language
 - Stronger style enforcement
+- Calculator
 
 
 ## Text Parsing
@@ -40,3 +41,6 @@
 - Arithmatic & Logic
 - calling other josl files
 
+## Calculator 
+- simple arithmetic (Add, Sub, Mult, Div)
+- pretty front end
