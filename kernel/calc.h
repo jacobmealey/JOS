@@ -2,9 +2,13 @@
 // Simple calculator for JOS
 // Author: Jacob Mealey
 
+#ifndef CALC_H
+#define CALC_H
+
 #include "common.h"
 
-typedef struct Calc{
-	int sing_flag;
-	int numbers[];
-}Calc;
+int CALC_AMOUNT;
+
+void add_number(int number);
+
+#endif

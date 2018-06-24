@@ -14,6 +14,7 @@
 #include "fat.h"
 #include "parse.h"
 #include "josl.h"
+#include "calc.h"
 
 
 void shInit();

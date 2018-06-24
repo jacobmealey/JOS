@@ -24,7 +24,7 @@
 #include "keyboard.h"
 #include "shell.h"
 #include "fat.h"
-
+#include "calc.h"
 
 #if defined(__cplusplus)
 extern "C" /* Use C linkage for kernel_main. */
@@ -36,6 +36,10 @@ void kernel_main(void)
 	shInit();
 	setupDisk();
 	prompt();
+
+	add_number(12);
+	add_number(-3);
+	printInt(CALC_AMOUNT, normal);
 
 	while(true)
 		handleKeys();
