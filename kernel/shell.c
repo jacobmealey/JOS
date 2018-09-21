@@ -9,6 +9,7 @@ char file_buff[20][20][20];
 
 void shInit()
 {
+	clear_screen(normal);
 	centerPrint("     ___  _______  _______ ", normal);
     	centerPrint("    |   ||       ||       |", normal);
    	centerPrint("    |   ||   _   ||  _____|", normal);

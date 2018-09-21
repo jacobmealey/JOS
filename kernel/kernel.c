@@ -37,10 +37,6 @@ void kernel_main(void)
 	setupDisk();
 	prompt();
 
-	add_number(12);
-	add_number(-3);
-	printInt(CALC_AMOUNT, normal);
-
 	while(true)
 		handleKeys();
 }
